@@ -1,0 +1,42 @@
+@mixin font($type) {
+  @if $type == h1 {
+    font-family: $font;
+    font-size: $h1Size;
+    font-weight: 600;
+    color: $black;
+  }
+  @elseif $type == h2 {
+    font-family: $font;
+    font-size: $h2Size;
+    font-weight: 600;
+    color: $black;
+  }
+  @elseif $type == p {
+    font-family: $font;
+    font-size: $pSize;
+    font-weight: 400;
+    color: $darkgrey;
+  }
+  @elseif $type == nav {
+    font-family: $font;
+    font-size: 1em;
+    font-weight: 600;
+    color: $black;
+    transition: color, text-decoration 0.3s ease-in-out;
+    &:hover, &:active {
+      color: $green;
+    }
+  }
+  @elseif $type == a {
+    font-family: $font;
+    font-size: $pSize;
+    font-weight: 400;
+    color: $darkgrey;
+    text-decoration: none;
+    transition: color, text-decoration 0.3s ease-in-out;
+    &:hover, &:active {
+      color: $green;
+    }
+  }
+
+}

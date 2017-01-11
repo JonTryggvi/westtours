@@ -1,3 +1,15 @@
+.main-nav-container, .dropdown-main-container {
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 100%;
+  height:100px;
+  &:hover {
+    background-color: #fff;
+  }
+}
 .top-bar, .top-bar ul {
   background-color: transparent;
 }
@@ -9,6 +21,15 @@
 .top-bar {
   height: 100px;
   box-sizing: border-box;
+
+  .centerMenu {
+    ul {
+      display: flex;
+      justify-content: space-around;
+      width: 77%;
+
+    }
+  }
   .menu  {
     li {
       box-sizing: border-box;
@@ -26,7 +47,9 @@
         padding: 0;
         height: 100px;
         @include font(nav);
+        letter-spacing: 0.32px;
         text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
         &:hover {
           background-color: transparent !important;
         }
@@ -81,12 +104,35 @@
     justify-content: space-around;
     list-style: none;
     .lang {
+      position: relative;
       border: none;
       display: flex;
       height: 100px;
       align-items: center;
       margin: 0 !important;
       padding: 0;
+      &::before {
+        position: absolute;
+        content: '';
+        width:24px;
+        height: 24px;
+        top:50%;
+        margin-top: -(24/2)*1px;
+        left:-20px;
+        background: url('../images/icons/langGlobe.svg') center center no-repeat;
+        background-size: cover;
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        width: 17px;
+        height: 9px;
+        top: 50%;
+        margin-top: -(9/2)*1px;
+        right: 10px;
+        background: url('../images/icons/downArrowBlk.svg') center center no-repeat;
+        background-size: cover;
+      }
       select {
         height: 100px;
         padding: 0;
@@ -98,4 +144,20 @@
     }
   }
 
+}
+
+.top-bar .menu > li:not(.menu-text) > a {
+  padding: 0;
+}
+
+.dropdown-main-container {
+  position: fixed;
+  top:-105px;
+
+}
+
+.set-nav-position {
+  position: fixed;
+  background-color: #fff;
+  top: 0;
 }

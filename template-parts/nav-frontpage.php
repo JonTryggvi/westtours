@@ -1,4 +1,3 @@
-
   <div id="site-navigation" class="main-navigation top-bar row" role="navigation">
     <div class="top-bar-left large-3">
       <ul class="menu">

@@ -128,14 +128,26 @@
 	height: 0;
 	left: -1px;
 	right: -1px;
-	top: 100%;
+	top: 55px;
 	margin-top: -1px;
 	background: #fff;
-	border: 1px solid #ccc;
-	border-top: 1px solid #eee;
+	// border: 1px solid #ccc;
+	// border-top: 1px solid #eee;
 	border-radius: 0 0 3px 3px;
 	overflow: hidden;
 	opacity: 0;
+	.relativer {
+		position: relative;
+		left:0;
+		top:0;
+		&::before {
+			position: absolute;
+			top:100px;
+			@include css-triangle(10px, #fff, up);
+		}
+	}
+
+
 }
 
 /* Height is adjusted by JS on open */

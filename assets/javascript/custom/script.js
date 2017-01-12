@@ -11,3 +11,5 @@ var onScroll = function(container, theclass, amount) {
 	};
 
     onScroll('.dropdown-main-container','set-nav-position', 24 );
+
+var elem = new Foundation.DropdownMenu('#mobile-menu');

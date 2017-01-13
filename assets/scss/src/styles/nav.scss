@@ -1,0 +1,130 @@
+
+
+.title-bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  .title-bar-title {
+    position: fixed;
+  }
+}
+
+.menu-icon {
+  position: absolute;
+
+  top:40px;
+  right: 20px;
+  background: red;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+}
+
+.main-nav-container {
+  position: absolute;
+  width: 100%;
+  top:0;
+  left: 0;
+  background-color: tansparent;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: #fff;
+  }
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    background-color: transparent;
+    .top-bar-left{
+      background-color: transparent;
+      ul {
+          background-color: transparent;
+        li {
+
+          a {
+              background-color: transparent;
+            &:hover {
+              background-color: transparent;
+            }
+            img {
+
+            }
+          }
+        }
+      }
+    }
+    .top-bar-center {
+
+        ul {
+          // display: flex;
+          // align-items: center;
+           background-color: transparent;
+
+          li {
+            display:inline-flex;
+            align-items: center;
+            height: 100px;
+            a {
+              @include font(nav);
+              text-transform: uppercase;
+              height:auto;
+              &:hover {
+                background-color: transparent;
+              }
+            }
+            ul {
+              position: absolute;
+
+
+            }
+          }
+        }
+    }
+    .search-bar {
+      float:left;
+
+      ul {
+        width: 100%;
+        margin: 0;
+        background-color: transparent;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        li {
+          display: flex;
+          align-items: center;
+          height: 100px;
+          select {
+            margin: 0;
+          }
+          .easy-dropdown {
+            div {
+
+              ul {
+                display: flex;
+                flex-direction: column;
+                li {
+                  display: flex;
+                  flex-direction: column;
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.easy-dropdown.open div ul {
+  display: flex;
+  flex-direction: column;
+}
+.set-nav-position {
+  position: fixed;
+  background-color: #fff;
+}

@@ -50,15 +50,36 @@
 
 // Tablet and desktop menu
 .top-bar {
-  .menu .home a {
-    font-size: 1rem;
-    color: #B9B9B9;
+  height: 100px;
+  background-color: #FFF;
+  .top-bar-left .menu, .top-bar-right .menu {
+
+    height: 100px;
+    background-color: #FFF;
+    color: black;
+    border: none;
   }
+  .top-bar-right, .top-bar-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .menu-item {
+      height: 100px;
+    }
+  }
+  .menu .home {
+      height: 100px;
+    a {
+    font-size: 1rem;
+    background-color: #FFF;
+    color: black;
+  }
+}
 
   .menu a {
     height: 45px;
     line-height: 45px;
-    color: #e6e6e6;
+    color: black;
     padding-top: 0;
     padding-bottom: 0;
     font-weight: bold;
@@ -72,8 +93,9 @@
 
   .menu .active > a { background-color: lighten($outer-space, 10%); }
 
-  .menu>li:not(.menu-text)>a { padding: 1rem; }
-  .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
+  .menu>li:not(.menu-text)>a {
+    padding: none; }
+  .menu li:not(:last-child) { border-right: none; }
 
   .dropdown.menu .submenu { border: 0; }
   .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }

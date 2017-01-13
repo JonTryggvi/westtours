@@ -1,10 +1,10 @@
 // Navigation breakpoints
 .desktop-menu, .top-bar-left {
-  @include show-for(large);
+  @include show-for(medium);
 }
 
 #mobile-menu, .title-bar {
-  @include hide-for(large);
+  @include hide-for(medium);
 }
 
 // Mobile menu

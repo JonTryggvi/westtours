@@ -27,7 +27,7 @@
 
 // Individual foundation components
 @include foundation-grid;
-@include foundation-flex-grid;
+// @include foundation-flex-grid;
 @include foundation-typography;
 @include foundation-forms;
 @include foundation-button;
@@ -94,4 +94,3 @@
 @import "templates/page-sidebar-left";
 @import "templates/page-full-width";
 @import "templates/single-post";
-@import "src/index";

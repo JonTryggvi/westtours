@@ -7,13 +7,12 @@
   top: 588px;
   left: 50%;
   margin-left: -(980/2)*1px;
-
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid $grey;
 
     .activities-container {
-      @include disable-mouse-outline;
+
       box-sizing: border-box;
       // padding: 5px 0 0 20px;
       height: 100%;
@@ -21,19 +20,44 @@
       label {
         margin:5px 0 0 20px;
       }
-    #activities-search {
-      margin-left: 20px;
-      width: 360px;
-      border: none;
-      height: 28px;
-      @include font(filter);
-    }
+      #activities-search {
+        @include disable-mouse-outline;
+        margin-left: 20px;
+        width: 360px;
+        border: none;
+        height: 28px;
+        @include font(filter);
+        border-bottom: solid transparent 1px;
+        transition: border-bottom 0.5s ease-in-out;
+        &:focus {
+          border-bottom: solid $green 1px;
+        }
+      }
     }
     .when-container {
+
       box-sizing: border-box;
-      padding: 5px;
+      // padding: 5px;
       border-right: 1px solid $grey;
       height: 100%;
+      label {
+        margin:5px 0 0 20px;
+      }
+      #datepicker {
+        @include font(filter);
+        height: 28px;
+        width: 138px;
+        padding: 0;
+        margin-left: 20px;
+        border: none;
+        box-shadow: none;
+        border-bottom: solid transparent 1px;
+        transition: border-bottom 0.5s ease-in-out;
+        &:focus {
+          border-bottom: solid $green 1px;
+        }
+      }
+
     }
     .party-container {
       box-sizing: border-box;
@@ -44,5 +68,18 @@
     .button-container {
       height: 100%;
     }
+}
 
+.ui-widget.ui-widget-content {
+  margin-top: 30px;
+  width: 627px !important;
+  padding: 20px;
+  border-radius: 5px;
+  &::before {
+    @include css-triangle(20px, #fff, up);
+    top: -20px;
+    left: 45px;
+    margin-left: -20px;
+    position: absolute;
+  }
 }

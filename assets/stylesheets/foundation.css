@@ -12629,8 +12629,6 @@ button:focus {
             box-sizing: border-box;
     height: 100%;
     border-right: 1px solid #CED1CC; }
-    [data-whatinput='mouse'] .filter-container .activities-container {
-      outline: 0; }
     .filter-container .activities-container label {
       margin: 5px 0 0 20px; }
     .filter-container .activities-container #activities-search {
@@ -12641,13 +12639,38 @@ button:focus {
       font-family: "Open Sans", sans-serif;
       font-size: 18px;
       font-weight: 600;
-      color: #CED1CC; }
+      color: #CED1CC;
+      border-bottom: solid transparent 1px;
+      -webkit-transition: border-bottom 0.5s ease-in-out;
+      transition: border-bottom 0.5s ease-in-out; }
+      [data-whatinput='mouse'] .filter-container .activities-container #activities-search {
+        outline: 0; }
+      .filter-container .activities-container #activities-search:focus {
+        border-bottom: solid #56B881 1px; }
   .filter-container .when-container {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    padding: 5px;
     border-right: 1px solid #CED1CC;
     height: 100%; }
+    .filter-container .when-container label {
+      margin: 5px 0 0 20px; }
+    .filter-container .when-container #datepicker {
+      font-family: "Open Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #CED1CC;
+      height: 28px;
+      width: 138px;
+      padding: 0;
+      margin-left: 20px;
+      border: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      border-bottom: solid transparent 1px;
+      -webkit-transition: border-bottom 0.5s ease-in-out;
+      transition: border-bottom 0.5s ease-in-out; }
+      .filter-container .when-container #datepicker:focus {
+        border-bottom: solid #56B881 1px; }
   .filter-container .party-container {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -12655,5 +12678,24 @@ button:focus {
     height: 100%; }
   .filter-container .button-container {
     height: 100%; }
+
+.ui-widget.ui-widget-content {
+  margin-top: 30px;
+  width: 627px !important;
+  padding: 20px;
+  border-radius: 5px; }
+  .ui-widget.ui-widget-content::before {
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 20px;
+    content: '';
+    border-top-width: 0;
+    border-bottom-style: solid;
+    border-color: transparent transparent #fff;
+    top: -20px;
+    left: 45px;
+    margin-left: -20px;
+    position: absolute; }
 
 /*# sourceMappingURL=foundation.css.map */

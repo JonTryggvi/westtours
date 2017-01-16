@@ -34,7 +34,18 @@ $('.is-dropdown-submenu-parent').mouseover(function(){
 	$('.first-sub').addClass('menu-animation');
 });
 
-$(".chosen-select").chosen({disable_search_threshold: 10});
+// $(".chosen-select").chosen({disable_search_threshold: 10});
+
+
+
+$( function() {
+    $( "#datepicker" ).datepicker({
+      numberOfMonths: 2,
+      showButtonPanel: false,
+			showAnim: "fadeIn",
+			showOptions: { direction: "down" }
+    });
+  } );
 
 //
 // var elem = $('.dropdown');

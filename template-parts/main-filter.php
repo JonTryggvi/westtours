@@ -5,7 +5,7 @@
   </div>
   <div class="when-container medium-2">
     <label for="when">When</label>
-    <input id="when" type="date" name="">
+    <input type="text" id="datepicker" placeholder="Pick a date">
   </div>
   <div class="party-container medium-3">
 

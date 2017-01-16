@@ -12,7 +12,9 @@
 if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
-	
+		// jQuery UI
+	wp_enqueue_style( 'JQU-stylesheet', get_template_directory_uri() . '/assets/components/jquery-ui/jquery-ui.min.css', array(), '2.9.0', 'all' );
+
 	// Enqueue the main Stylesheet.
 	wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/assets/stylesheets/foundation.css', array(), '2.9.0', 'all' );
 
@@ -21,6 +23,8 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
 	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js', array(), '2.1.0', false );
+
+	wp_enqueue_script( 'jquery-ui', '//code.jquery.com/ui/1.12.1/jquery-ui.min.js', array('jquery'), '1.12.1', false );
 
 	  wp_enqueue_script( 'easydropdown', get_template_directory_uri() . '/assets/javascript/jquery.easydropdown.js', array('jquery'), '2.9.0', true );
 

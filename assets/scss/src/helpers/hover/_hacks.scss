@@ -15,7 +15,7 @@
 
 @mixin forceBlockLevel() {
 	// Transforms need to be block-level to work
-	display: inline-block;
+	// display: inline-block;
 	vertical-align: middle;
 }
 

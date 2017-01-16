@@ -9,4 +9,35 @@ var onScroll = function(container, theclass, amount) {
 		});
 	};
 
-onScroll('.main-nav-container','set-nav-position', 24 );
+onScroll('.main-nav-container','set-nav-position', 1 );
+
+
+$('.call').click(function(){
+	$('.burger').toggleClass('thex');
+	$('body').toggleClass('stop-scrolling');
+});
+
+$('.lang').click(function(){
+	if($('.open')){
+		$('.main-nav-container').addClass('anti-transparent-background-2000');
+	}else {
+		$('.main-nav-container').removeClass('anti-transparent-background-2000');
+	}
+
+});
+
+$('.is-accordion-submenu-parent').click(function(){
+	// $('body').toggleClass('stop-scrolling');
+});
+
+$('.is-dropdown-submenu-parent').mouseover(function(){
+	$('.first-sub').addClass('menu-animation');
+});
+
+$(".chosen-select").chosen({disable_search_threshold: 10});
+
+//
+// var elem = $('.dropdown');
+//
+// Foundation.Motion.animateIn(elem, animationClass [, callback]);
+// Foundation.Motion.animateOut(elem, animationClass [, callback]);

@@ -1,0 +1,48 @@
+.filter-container {
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: 981px;
+  height: 70px;
+  top: 588px;
+  left: 50%;
+  margin-left: -(980/2)*1px;
+
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid $grey;
+
+    .activities-container {
+      @include disable-mouse-outline;
+      box-sizing: border-box;
+      // padding: 5px 0 0 20px;
+      height: 100%;
+      border-right: 1px solid $grey;
+      label {
+        margin:5px 0 0 20px;
+      }
+    #activities-search {
+      margin-left: 20px;
+      width: 360px;
+      border: none;
+      height: 28px;
+      @include font(filter);
+    }
+    }
+    .when-container {
+      box-sizing: border-box;
+      padding: 5px;
+      border-right: 1px solid $grey;
+      height: 100%;
+    }
+    .party-container {
+      box-sizing: border-box;
+      padding: 5px;
+      // border-right: 1px solid $grey;
+      height: 100%;
+    }
+    .button-container {
+      height: 100%;
+    }
+
+}

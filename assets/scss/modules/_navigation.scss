@@ -4,6 +4,9 @@
 }
 
 #mobile-menu, .title-bar {
+  position: absolute;
+  width: 100%;
+  padding:0;
   @include hide-for(medium);
 }
 
@@ -14,7 +17,7 @@
     padding: 1rem;
 
     a {
-      color: $white;
+      color: $black;
       font-weight: 600;
       font-size: rem-calc(18);
       opacity: .75;
@@ -42,6 +45,7 @@
 }
 
 .title-bar-title {
+
   a {
     font-size: 1rem;
     color: #B9B9B9;
@@ -62,7 +66,7 @@
   .top-bar-right, .top-bar-left {
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     .menu-item {
       height: 100px;
     }

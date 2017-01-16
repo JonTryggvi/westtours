@@ -88,7 +88,7 @@ $breakpoints: (
   xxlarge: 1440px,
 );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small medium large xlarge);
 
 // 3. The Grid
 // -----------
@@ -96,8 +96,8 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 20px,
-  medium: 30px,
+  small: 10px,
+  medium: 10px,
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;
@@ -434,8 +434,8 @@ $meter-fill-bad: $alert-color;
 
 $offcanvas-size: 100vw;
 $offcanvas-vertical-size: 100vw;
-$offcanvas-background: $outer-space;
-$offcanvas-shadow: 0 0 10px rgba($black, 0.7);
+$offcanvas-background: #fff;
+$offcanvas-shadow: 0 0 10px rgba($black, 0);
 $offcanvas-push-zindex: 1;
 $offcanvas-overlap-zindex: 10;
 $offcanvas-reveal-zindex: 1;

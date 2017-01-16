@@ -1,3 +1,14 @@
 body {
   background-color: $bodygrey;
 }
+
+label {
+  @include font(label);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}

@@ -12,11 +12,11 @@
 		z-index: -1;
 		left: 50%;
 		right: 50%;
-		bottom: 5px;
-		background: #000;
+		bottom: 0px;
+		background: $green;
 		height: 4px;
 		@include prefixed(transition-property, "left, right");
-		@include prefixed(transition-duration, $duration);
+		@include prefixed(transition-duration, 0.5s);
 		@include prefixed(transition-timing-function, ease-out);
 	}
 

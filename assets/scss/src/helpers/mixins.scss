@@ -38,5 +38,16 @@
       color: $green;
     }
   }
-
+ @elseif $type == label {
+   font-family: $font;
+   font-size: 14px;
+   font-weight: 600;
+   color: $green;
+ }
+ @elseif $type == filter {
+   font-family: $font;
+   font-size: 18px;
+   font-weight: 600;
+   color: $grey;
+ }
 }

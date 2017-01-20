@@ -50,4 +50,69 @@
    font-weight: 600;
    color: $grey;
  }
+ @elseif $type == date {
+   font-family: $font;
+   font-size:14px;
+   font-weight: 600px;
+   color: $grey;
+ }
+ @else if $type == button {
+   font-family: $font;
+   font-size: 16px;
+   font-weight: 600;
+   color: $green;
+   text-align: center;
+   letter-spacing: -0.32px;
+   &:hover {
+     color: #fff;
+   }
+ }
+
 }
+
+@mixin button {
+  background-color: $green;
+  border-radius: 5px;
+  color: #fff;
+  width:135px;
+  height: 40px;
+  font-size: 1rem;
+  font-family: $font;
+  cursor: pointer;
+}
+
+
+@mixin btn($color, $hoverColor, $width, $height,  $margin:null) {
+    @include font(button);
+    width: $width;
+    height: $height;
+    margin: $margin;
+    overflow: hidden;
+    border: 1px solid $color;
+    background-color: transparent;
+    border-radius: $height / 2;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: $green;
+      border-radius: $height / 2;
+    }
+  }
+
+  //position
+  @mixin positon($width, $height, $top:null, $right:null, $bottom:null, $left:null) {
+    position: absolute;
+    content: '';
+    width: $width;
+    height: $height;
+    top:$top;
+    right:$right;
+    bottom:$bottom;
+    left: $left;
+  }
+
+  @mixin borderLines($t, $r, $b, $l, $color){
+    border-top: $t solid $color;
+    border-right: $r solid $color;
+    border-bottom: $b solid $color;
+    border-left: $l solid $color;
+  }

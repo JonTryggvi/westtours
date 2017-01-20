@@ -31,21 +31,55 @@ $('.is-accordion-submenu-parent').click(function(){
 });
 
 $('.is-dropdown-submenu-parent').mouseover(function(){
-	$('.first-sub').addClass('menu-animation');
+	$('.first-sub').toggleClass('menu-animation');
 });
 
 // $(".chosen-select").chosen({disable_search_threshold: 10});
 
+// $( function() {
+//     $( "#datepicker" ).datepicker({
+//       numberOfMonths: 2,
+//       showButtonPanel: false,
+// 			showAnim: "fadeIn",
+// 			showOptions: { direction: "down" }
+//     });
+//   } );
 
+	$( function() {
+	 var dateFormat = "dd MMMM yy",
+		 from = $( "#from" )
+			 .datepicker({
+				 changeMonth: false,
+				 numberOfMonths: 2,
+				 showButtonPanel: false,
+				 showAnim: "fadeIn",
+				 showOptions: { direction: "down" }
+			 })
+			 .on( "change", function() {
+				 to.datepicker( "option", "minDate", getDate( this ) );
+			 }),
+		 to = $( "#to" ).datepicker({
+			 changeMonth: false,
+			 numberOfMonths: 2,
+			 showButtonPanel: false,
+			 showAnim: "fadeIn",
+			 showOptions: { direction: "down" }
+		 })
+		 .on( "change", function() {
+			 from.datepicker( "option", "maxDate", getDate( this ) );
+		 });
 
-$( function() {
-    $( "#datepicker" ).datepicker({
-      numberOfMonths: 2,
-      showButtonPanel: false,
-			showAnim: "fadeIn",
-			showOptions: { direction: "down" }
-    });
-  } );
+	 function getDate( element ) {
+		 var date;
+		 try {
+			 date = $.datepicker.parseDate( dateFormat, element.value );
+		 } catch( error ) {
+			 date = null;
+		 }
+
+		 return date;
+	 }
+ } );
 
 //
 // var elem = $('.dropdown');

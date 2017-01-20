@@ -32,6 +32,8 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	// It's a good idea to do this, performance-wise. No need to load everything if you're just going to use the grid anyway, you know :)
 	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/assets/javascript/foundation.js', array('jquery'), '2.9.0', true );
 
+	wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?key=AIzaSyAn15iQCL6oH7e4gCQzmJW03WKpzpxKRuo',null,null,true);
+
 	// Add the comment-reply library on pages where it is necessary
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -40,4 +42,8 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	}
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
+
+
+
+
 endif;

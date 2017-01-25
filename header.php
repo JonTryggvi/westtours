@@ -23,8 +23,9 @@
 	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 	<button class="menu-burger call burger show-for-small-only" type="button" data-toggle="mobile-menu">
 		<span></span>
-					<span></span>
-					<span></span></button>
+		<span></span>
+		<span></span>
+	</button>
 	<div class="off-canvas-wrapper">
 		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>

@@ -1,5 +1,5 @@
 .filter-container {
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
   display: inline-flex;
   position: relative;
@@ -35,9 +35,37 @@
           border-bottom: solid $green 1px;
         }
       }
+    .select2-container--default {
+      box-sizing: border-box;
+      .select2-selection--single {
+        background-color: white;
+        border: none;
+        border-radius: none;
+        cursor: text;
+        @include disable-mouse-outline;
+        margin-left: 20px;
+        width: 360px;
+        border: none;
+        height: 28px;
+        @include font(filter);
+        border-bottom: solid transparent 1px;
+        transition: border-bottom 0.5s ease-in-out;
+        &:focus {
+          border-bottom: solid $green 1px;
+        }
+      }
+      .select2-selection__rendered {
+        @include font(filter);
+        border-bottom: solid transparent 1px;
+        transition: border-bottom 0.5s ease-in-out;
+        &:focus {
+          border-bottom: solid $green 1px;
+        }
+      }
+    }
     }
     .when-container {
-
+      overflow: hidden;
       box-sizing: border-box;
       max-width: 180px;
       border-right: 1px solid $grey;
@@ -92,7 +120,7 @@
       .btn {
         @include button;
         margin-right: 14px;
-        
+
       }
     }
 }

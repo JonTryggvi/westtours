@@ -3,7 +3,7 @@
     <label for="activities-search">Activety</label>
 
 
-     <select id="activities-search" class="search-field chosen-select" type="search-field" name="" value="" placeholder="What do you like?"></select>
+     <select  id="activities-search" class="search-field chosen-select" type="search-field" name="" value="" placeholder="What do you like?"></select>
 
   </div>
   <div class="when-container medium-3">

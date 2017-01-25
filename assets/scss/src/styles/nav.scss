@@ -27,7 +27,7 @@
   top:0;
   left: 0;
   background-color: tansparent;
-  transition: all 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, box-shadow 1.2s ease-in-out;
   z-index: 2;
   &:hover {
     background-color: #fff;
@@ -259,6 +259,7 @@
 
 .anti-transparent-background-2000 {
   background-color: #fff;
+  // position: relative;
 }
 
 .menu-animation {

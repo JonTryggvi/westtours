@@ -1,11 +1,21 @@
 
+<?php
+$body_classes = get_body_class();
+if(in_array('single', $body_classes))
+{
+   $bodyColor = "anti-transparent-background-2000";
+} else {
+  $bodyColor = "";
+}
+ ?>
+
   <div class="title-bar" data-responsive-toggle="site-navigation">
     <div class="title-bar-title">
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/assets/images/icons/logo-single.svg' ?>" alt=""/></a>
     </div>
   </div>
 
-<div class="main-nav-container">
+<div class="main-nav-container <?php echo $bodyColor ?>">
   <nav id="site-navigation" class="main-navigation top-bar row" role="navigation">
     <div class="top-bar-left">
       <ul class="menu">

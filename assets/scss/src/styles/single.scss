@@ -1,0 +1,38 @@
+.main-content {
+  margin-top: 120px;
+  width: 100% !important;
+  header {
+    display: flex;
+    justify-content: space-between;;
+    h1 {
+      display: inline-block;
+      width: 50%;
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      flex-flow: column wrap;
+      li {
+
+      }
+    }
+  }
+  .entry-content {
+    border-radius: 5px;
+    border: 1px solid $grey;
+    overflow: hidden;
+    .post-image {
+      position: relative;
+      height: 500px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow: hidden;
+      img {
+        position: absolute;
+        top: -25%;
+        width: 100%;
+      }
+    }
+  }
+}

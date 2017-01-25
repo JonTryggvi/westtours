@@ -12333,8 +12333,10 @@ button:focus {
   top: 0;
   left: 0;
   background-color: tansparent;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: background-color 0.5s ease-in-out, -webkit-box-shadow 1.2s ease-in-out;
+  transition: background-color 0.5s ease-in-out, -webkit-box-shadow 1.2s ease-in-out;
+  transition: background-color 0.5s ease-in-out, box-shadow 1.2s ease-in-out;
+  transition: background-color 0.5s ease-in-out, box-shadow 1.2s ease-in-out, -webkit-box-shadow 1.2s ease-in-out;
   z-index: 2; }
   .main-nav-container:hover {
     background-color: #fff; }
@@ -12675,7 +12677,7 @@ button:focus {
   overflow: hidden; }
 
 .filter-container {
-  overflow: hidden;
+  overflow: visible;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -12714,7 +12716,41 @@ button:focus {
         outline: 0; }
       .filter-container .activities-container #activities-search:focus {
         border-bottom: solid #56B881 1px; }
+    .filter-container .activities-container .select2-container--default {
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; }
+      .filter-container .activities-container .select2-container--default .select2-selection--single {
+        background-color: white;
+        border: none;
+        border-radius: none;
+        cursor: text;
+        margin-left: 20px;
+        width: 360px;
+        border: none;
+        height: 28px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #CED1CC;
+        border-bottom: solid transparent 1px;
+        -webkit-transition: border-bottom 0.5s ease-in-out;
+        transition: border-bottom 0.5s ease-in-out; }
+        [data-whatinput='mouse'] .filter-container .activities-container .select2-container--default .select2-selection--single {
+          outline: 0; }
+        .filter-container .activities-container .select2-container--default .select2-selection--single:focus {
+          border-bottom: solid #56B881 1px; }
+      .filter-container .activities-container .select2-container--default .select2-selection__rendered {
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #CED1CC;
+        border-bottom: solid transparent 1px;
+        -webkit-transition: border-bottom 0.5s ease-in-out;
+        transition: border-bottom 0.5s ease-in-out; }
+        .filter-container .activities-container .select2-container--default .select2-selection__rendered:focus {
+          border-bottom: solid #56B881 1px; }
   .filter-container .when-container {
+    overflow: hidden;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     max-width: 180px;
@@ -13077,5 +13113,42 @@ button:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between; }
+
+.main-content {
+  margin-top: 120px;
+  width: 100% !important; }
+  .main-content header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    .main-content header h1 {
+      display: inline-block;
+      width: 50%; }
+    .main-content header ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      list-style: none;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap; }
+  .main-content .entry-content {
+    border-radius: 5px;
+    border: 1px solid #CED1CC;
+    overflow: hidden; }
+    .main-content .entry-content .post-image {
+      position: relative;
+      height: 500px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+              background-size: cover;
+      overflow: hidden; }
+      .main-content .entry-content .post-image img {
+        position: absolute;
+        top: -25%;
+        width: 100%; }
 
 /*# sourceMappingURL=foundation.css.map */

@@ -26,6 +26,8 @@ $('.call').click(function(){
 //
 // });
 
+
+
 $('.is-accordion-submenu-parent').click(function(){
 	// $('body').toggleClass('stop-scrolling');
 });
@@ -34,8 +36,9 @@ $('.is-dropdown-submenu-parent').mouseover(function(){
 	$('.first-sub').toggleClass('menu-animation');
 });
 
- $(".chosen-select").chosen({disable_search_threshold: 10});
 
+ // setTimeout(' $("#activities-search").chosen();',200);
+ $("#activities-search").select2();
 // $( function() {
 //     $( "#datepicker" ).datepicker({
 //       numberOfMonths: 2,

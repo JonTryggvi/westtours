@@ -1,3 +1,5 @@
+
+
 .title-bar {
   position: absolute;;
   display: flex;
@@ -26,6 +28,7 @@
   left: 0;
   background-color: tansparent;
   transition: all 0.5s ease-in-out;
+  z-index: 2;
   &:hover {
     background-color: #fff;
   }
@@ -36,6 +39,7 @@
     background-color: transparent;
     .top-bar-left{
       width: 25%;
+      margin-left: 10px;
       background-color: transparent;
       ul {
           background-color: transparent;
@@ -157,6 +161,7 @@
     .search-bar {
       display: relative;
       width: 35%;
+      margin-right: 10px;
       ul {
         float: right;
         width: 70%;
@@ -249,6 +254,7 @@
 .set-nav-position {
   position: fixed;
   background-color: #fff;
+  box-shadow: 0 1px 40px rgba(#000,0.2);
 }
 
 .anti-transparent-background-2000 {
@@ -258,3 +264,34 @@
 .menu-animation {
   animation: opacityAn 0.5s 0.2s forwards ease-in-out;
 }
+
+// mobile nav
+
+
+  #mobile-menu {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    .mobile-nav-search{
+      height: auto;
+      margin-top: 20vh;
+
+      width: 90vw;
+      input {
+        border: none;
+        box-shadow: none;
+        border-bottom: 1px solid $green;
+      }
+    }
+    #menu-main {
+      height: auto;
+      width: 90vw;
+      margin-top: 10px;
+      // border-top: 1px solid $green;
+      border-bottom: 1px solid $green;
+      li {
+
+      }
+    }
+
+  }

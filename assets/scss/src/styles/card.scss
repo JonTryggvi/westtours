@@ -1,9 +1,6 @@
 
 ////
-#big-card {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .card, .card-large {
   box-sizing: border-box;
@@ -90,16 +87,14 @@
     box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.2);
   }
   .icon {
-    background: none;
-    width: 250px;
-    height: auto;
-    margin: 0 auto;
-    img {
-      display: block;
-      height: auto;
-      width: 25px;
-      margin:  0 auto;
-    }
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    max-width: 35px;
+    width: 100%;
+    height: 25px;
+    margin: 13px auto 10px;
+
     .icon-sailing {
       width: 42px;
         margin:  11px auto 0;
@@ -157,6 +152,9 @@
   .image{
     max-height: 200px;
     height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   // @include breakpoint(small down){
   //   @include grid-column-collapse;
@@ -180,6 +178,9 @@
   }
   .icon {
     // background: url(../icon/hikingSummer.svg) 50% 50% no-repeat;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
     max-width: 35px;
     width: 100%;
     height: 25px;
@@ -210,19 +211,21 @@
     line-height: 20px;
   }
   .card-content {
-    margin-top: 15px;
+    margin-top: 12px;
     padding:0 1rem 0;
     h2{
       @include font(h2);
       width: 210px;
-      height: 56px;
+      height: 40px;
       overflow: hidden;
       width: 403px;
     }
     p {
       text-align: left;
-      margin: 18px auto 0;
+      margin: 0 auto 0;
       padding: 0 20px;
+      height: 100px;
+      word-wrap: normal;
     }
   }
 
@@ -251,6 +254,18 @@
 
 .hentry header {
   border-bottom: none;
+}
+
+#big-cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+#cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 // .card:first-child {

@@ -53,7 +53,7 @@ if ( ! function_exists( 'foundationpress_top_bar_c' ) ) {
 if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 	function foundationpress_mobile_nav() {
 		wp_nav_menu( array(
-			'container'      => false,                         // Remove nav container
+			'container'      => true,                         // Remove nav container
 			'menu'           => __( 'mobile-nav', 'foundationpress' ),
 			'menu_class'     => 'vertical menu',
 			'theme_location' => 'mobile-nav',

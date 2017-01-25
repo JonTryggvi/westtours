@@ -14,6 +14,9 @@
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/assets/images/icons/logo-single.svg' ?>" alt=""/></a>
     </div>
   </div>
+  <div class="mobile-nav-search">
+    <input type="search" name="" value="">
+  </div>
   <?php foundationpress_mobile_nav(); ?>
 </nav>
 

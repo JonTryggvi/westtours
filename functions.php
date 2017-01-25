@@ -47,7 +47,7 @@ require_once( 'library/sticky-posts.php' );
 /** Configure responsive image sizes */
 require_once( 'library/responsive-images.php' );
 /** Custom post for a clean function file */
-require_once( 'library/custom-posts.php' );
+require_once( 'library/custom-post-types/custom-posts.php' );
 /** set startup categories */
 require_once( 'library/set-category.php' );
 require_once( 'library/google-maps-register.php' );

@@ -1,7 +1,10 @@
 <div class="filter-container">
-  <div class="activities-container medium-5">
+  <div id="activety-autocompleat" class="activities-container medium-5">
     <label for="activities-search">Activety</label>
-    <input id="activities-search" class="search-field" type="search-field" name="" value="" placeholder="What do you like?">
+
+
+     <select id="activities-search" class="search-field chosen-select" type="search-field" name="" value="" placeholder="What do you like?"></select>
+
   </div>
   <div class="when-container medium-3">
     <label for="when">When</label>

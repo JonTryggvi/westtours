@@ -17,14 +17,14 @@ $('.call').click(function(){
 	$('body').toggleClass('stop-scrolling');
 });
 
-$('.lang').click(function(){
-	if($('.open')){
-		$('.main-nav-container').addClass('anti-transparent-background-2000');
-	}else {
-		$('.main-nav-container').removeClass('anti-transparent-background-2000');
-	}
-
-});
+// $('.lang').click(function(){
+// 	if($('.open')){
+// 		$('.main-nav-container').addClass('anti-transparent-background-2000');
+// 	}else {
+// 		$('.main-nav-container').removeClass('anti-transparent-background-2000');
+// 	}
+//
+// });
 
 $('.is-accordion-submenu-parent').click(function(){
 	// $('body').toggleClass('stop-scrolling');
@@ -34,7 +34,7 @@ $('.is-dropdown-submenu-parent').mouseover(function(){
 	$('.first-sub').toggleClass('menu-animation');
 });
 
-// $(".chosen-select").chosen({disable_search_threshold: 10});
+ $(".chosen-select").chosen({disable_search_threshold: 10});
 
 // $( function() {
 //     $( "#datepicker" ).datepicker({

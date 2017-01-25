@@ -29,6 +29,7 @@ var COMPATIBILITY = [
 // File paths to various assets are defined here.
 var PATHS = {
   sass: [
+    
     'assets/components/foundation-sites/scss',
     'assets/components/motion-ui/src',
     'assets/components/fontawesome/scss',
@@ -59,10 +60,12 @@ var PATHS = {
     'assets/components/foundation-sites/js/foundation.toggler.js',
     'assets/components/foundation-sites/js/foundation.tooltip.js',
 
+
     // Motion UI
     'assets/components/motion-ui/motion-ui.js',
 
     // Include your own custom scripts (located in the custom folder)
+
     'assets/javascript/custom/*.js',
   ],
   phpcs: [

@@ -66,8 +66,24 @@
    &:hover {
      color: #fff;
    }
+   @elseif $type == footer {
+    font-family: $font;
+    font-size: 14px;
+    font-weight: 400;
+    color: $grey;
+    letter-spacing: -0.28px;
+  }
+  @elseif $type == mail {
+  font-family: $font;
+  font-size: 14px;
+  font-weight: 400;
+  color: $grey;
+  letter-spacing: -0.28px;
+  &:hover{
+    color: $green;
+  }
  }
-
+}
 }
 
 @mixin button {
@@ -82,7 +98,7 @@
 }
 
 
-@mixin btn($color, $hoverColor, $width, $height,  $margin:null) {
+@mixin btn($color, $hoverColor, $width, $height,  $margin:null, $b-rad:2) {
     @include font(button);
     width: $width;
     height: $height;
@@ -90,7 +106,7 @@
     overflow: hidden;
     border: 1px solid $color;
     background-color: transparent;
-    border-radius: $height / 2;
+    border-radius: $height / $b-rad;
     transition: all 0.3s ease-in-out;
     &:hover {
       background-color: $green;

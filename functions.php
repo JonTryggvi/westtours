@@ -53,6 +53,3 @@ require_once( 'library/set-category.php' );
 require_once( 'library/google-maps-register.php' );
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/protocol-relative-theme-assets.php' );
-
-
-add_image_size( 'hero-img-sizer', 2880, 1600, false );

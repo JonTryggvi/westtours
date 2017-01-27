@@ -17,7 +17,8 @@ get_header(); ?>
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post();
 $nutrition_image = get_field('img');
-$img = $nutrition_image['sizes']['fp-large'];
+$img = $nutrition_image['sizes']['fp-xlarge'];
+$imgX2 = $nutrition_image['sizes']['hero-img-sizer'];
 $alt = $nutrition_image['alt'];
  ?>
 
@@ -35,7 +36,7 @@ $alt = $nutrition_image['alt'];
 		<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 		<div class="entry-content">
 			<section class="post-image">
-				<img src="<?php echo $img ?>" alt="">
+				<img src="<?php echo $img ?>" srcset="<?php echo $imgX2 ?>" alt="">
 			</section>
 			<?php the_content(); ?>
 			<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>

@@ -14,7 +14,7 @@
 		<div id="footer-container">
 			<footer id="footer">
 				<?php do_action( 'foundationpress_before_footer' ); ?>
-				<?php dynamic_sidebar( 'footer-widgets' ); ?>
+				<?php get_template_part( 'template-parts/wtfooter'); ?>
 				<?php do_action( 'foundationpress_after_footer' ); ?>
 			</footer>
 		</div>

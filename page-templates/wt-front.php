@@ -20,13 +20,16 @@ get_header(); ?>
 
 
 <?php while ( have_posts() ) : the_post(); ?>
+  <section>
+    <h1>Our most popular hiking tours</h1>
+      <div id="big-cards" class="row"></div>
+  </section>
 
-  <div id="big-cards" class="row">
+  <section>
+    <div id="cards" class="row"></div>
+    <button type="button" class="show-more" name="button">Show more trips</button>
+  </section>
 
-  </div>
-  <div id="cards" class="row">
-
-  </div>
 
       <?php do_action( 'foundationpress_page_before_comments' ); ?>
 

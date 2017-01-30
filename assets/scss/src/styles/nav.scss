@@ -80,11 +80,9 @@
                @include prefixed(transition-duration, 0.5s);
                @include prefixed(transition-timing-function, ease-out);
              }
-
              &:hover,
              &:focus,
              &:active {
-
                &:before {
                  left: 0;
                  right: 0;
@@ -273,6 +271,7 @@
 
 
   #mobile-menu {
+    position: fixed;
     display: flex;
     flex-flow: column wrap;
     align-items: center;

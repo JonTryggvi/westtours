@@ -20,7 +20,7 @@ get_header(); ?>
 
 
 <?php while ( have_posts() ) : the_post(); ?>
-  <section class="front-bigCards-container">
+  <section class="front-bigCards-container hide-for-small-only">
     <h1>Our most popular hiking tours</h1>
       <div id="big-cards" class=""></div>
   </section>

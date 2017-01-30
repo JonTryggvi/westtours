@@ -2,6 +2,7 @@
   overflow: visible;
   box-sizing: border-box;
   display: inline-flex;
+  justify-content: space-around;
   position: relative;
   width: 981px;
   height: 70px;
@@ -11,14 +12,28 @@
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid $grey;
+  @include breakpoint(small down) {
+    width: 90vw;
+    margin-left: -45vw;
+    top: 430px;
+  }
 
     .activities-container {
-
       box-sizing: border-box;
-      // padding: 5px 0 0 20px;
+      padding: 0;
       height: 100%;
       max-width: 400px;
       border-right: 1px solid $grey;
+      box-shadow: none;
+      @include breakpoint(small down) {
+        border-right: none;
+        &::after {
+          @include position(30px, 30px, 50%, 10px);
+          background: url('../images/icons/spyglassGreen.svg') no-repeat 50% 50%;
+          background-size: contain;
+          margin-top: -15px;
+        }
+      }
       label {
         margin:5px 0 0 20px;
       }
@@ -28,41 +43,47 @@
         width: 360px;
         border: none;
         height: 28px;
+        padding: 0;
         @include font(filter);
         border-bottom: solid transparent 1px;
         transition: border-bottom 0.5s ease-in-out;
         &:focus {
           border-bottom: solid $green 1px;
+          box-shadow: none;
+        }
+        @include breakpoint(small down) {
+          width: 80%;
+          padding: 0;
         }
       }
-    .select2-container--default {
-      box-sizing: border-box;
-      .select2-selection--single {
-        background-color: white;
-        border: none;
-        border-radius: none;
-        cursor: text;
-        @include disable-mouse-outline;
-        margin-left: 20px;
-        width: 360px;
-        border: none;
-        height: 28px;
-        @include font(filter);
-        border-bottom: solid transparent 1px;
-        transition: border-bottom 0.5s ease-in-out;
-        &:focus {
-          border-bottom: solid $green 1px;
-        }
-      }
-      .select2-selection__rendered {
-        @include font(filter);
-        border-bottom: solid transparent 1px;
-        transition: border-bottom 0.5s ease-in-out;
-        &:focus {
-          border-bottom: solid $green 1px;
-        }
-      }
-    }
+    // .select2-container--default {
+    //   box-sizing: border-box;
+    //   .select2-selection--single {
+    //     background-color: white;
+    //     border: none;
+    //     border-radius: none;
+    //     cursor: text;
+    //     @include disable-mouse-outline;
+    //     margin-left: 20px;
+    //     width: 360px;
+    //     border: none;
+    //     height: 28px;
+    //     @include font(filter);
+    //     border-bottom: solid transparent 1px;
+    //     transition: border-bottom 0.5s ease-in-out;
+    //     &:focus {
+    //       border-bottom: solid $green 1px;
+    //     }
+    //   }
+    //   .select2-selection__rendered {
+    //     @include font(filter);
+    //     border-bottom: solid transparent 1px;
+    //     transition: border-bottom 0.5s ease-in-out;
+    //     &:focus {
+    //       border-bottom: solid $green 1px;
+    //     }
+    //   }
+    // }
     }
     .when-container {
       overflow: hidden;
@@ -89,29 +110,29 @@
       }
 
     }
-    .party-container {
-      box-sizing: border-box;
-
-      // border-right: 1px solid $grey;
-      height: 100%;
-      label {
-        margin:5px 0 0 20px;
-      }
-      #counter {
-        @include font(filter);
-        height: 28px;
-        width: 128px;
-        padding: 0;
-        margin-left: 20px;
-        border: none;
-        box-shadow: none;
-        border-bottom: solid transparent 1px;
-        transition: border-bottom 0.5s ease-in-out;
-        &:focus {
-          border-bottom: solid $green 1px;
-        }
-      }
-    }
+    // .party-container {
+    //   box-sizing: border-box;
+    //
+    //   // border-right: 1px solid $grey;
+    //   height: 100%;
+    //   label {
+    //     margin:5px 0 0 20px;
+    //   }
+    //   #counter {
+    //     @include font(filter);
+    //     height: 28px;
+    //     width: 128px;
+    //     padding: 0;
+    //     margin-left: 20px;
+    //     border: none;
+    //     box-shadow: none;
+    //     border-bottom: solid transparent 1px;
+    //     transition: border-bottom 0.5s ease-in-out;
+    //     &:focus {
+    //       border-bottom: solid $green 1px;
+    //     }
+    //   }
+    // }
     .button-container {
       display: flex;
       align-items: center;
@@ -119,7 +140,7 @@
       height: 100%;
       .btn {
         @include button;
-        margin-right: 14px;
+        margin-right: 0;
 
       }
     }

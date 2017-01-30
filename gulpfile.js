@@ -29,7 +29,7 @@ var COMPATIBILITY = [
 // File paths to various assets are defined here.
 var PATHS = {
   sass: [
-    
+
     'assets/components/foundation-sites/scss',
     'assets/components/motion-ui/src',
     'assets/components/fontawesome/scss',
@@ -62,7 +62,7 @@ var PATHS = {
 
 
     // Motion UI
-    'assets/components/motion-ui/motion-ui.js',
+    // 'assets/components/motion-ui/motion-ui.js',
 
     // Include your own custom scripts (located in the custom folder)
 

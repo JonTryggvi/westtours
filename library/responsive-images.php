@@ -24,7 +24,7 @@ add_image_size( 'fp-xlarge', 1920 );
 
 
 add_image_size( 'hero-img-sizer', 2880, 1600, false );
-
+add_image_size( 'info-img-sizer', 1440, 700, false );
 // Register the new image sizes for use in the add media modal in wp-admin
 function foundationpress_custom_sizes( $sizes ) {
 	return array_merge( $sizes, array(

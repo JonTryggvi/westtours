@@ -1,7 +1,22 @@
 .hero-bannerinn {
-  // position: relative;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 800px;
+}
+
+.front-bigCards-container {
+  h1 {
+    text-align: center;
+    margin-bottom: rem-calc(32);
+  }
+
+}
+
+.front-smallCards-container {
+  margin-top: rem-calc(50);
+  h1 {
+    text-align: center;
+    margin-bottom: rem-calc(32)
+  }
 }

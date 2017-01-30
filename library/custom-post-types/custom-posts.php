@@ -59,13 +59,13 @@ function custom_bike_tours() {
 add_action( 'init', 'custom_bike_tours', 0 );
 
 // Register Custom Post Type
-function custom_test() {
+function info_posts() {
 
 	$labels = array(
-		'name'                  => _x( 'apis', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'api', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'api test', 'text_domain' ),
-		'name_admin_bar'        => __( 'api test', 'text_domain' ),
+		'name'                  => _x( 'info', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'info', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'info test', 'text_domain' ),
+		'name_admin_bar'        => __( 'info posts', 'text_domain' ),
 		'archives'              => __( 'Item Archives', 'text_domain' ),
 		'attributes'            => __( 'Item Attributes', 'text_domain' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
@@ -91,8 +91,8 @@ function custom_test() {
 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'api', 'text_domain' ),
-		'description'           => __( 'custom api', 'text_domain' ),
+		'label'                 => __( 'info', 'text_domain' ),
+		'description'           => __( 'post for info sections', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
@@ -111,9 +111,9 @@ function custom_test() {
 		'capability_type'       => 'post',
 		'show_in_rest'          => true,
 	);
-	register_post_type( 'custom_api', $args );
+	register_post_type( 'info_post_type', $args );
 
 }
-add_action( 'init', 'custom_test', 0 );
+add_action( 'init', 'info_posts', 0 );
 
  ?>

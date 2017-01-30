@@ -11,7 +11,7 @@
   color: #272727;
   border: 1px solid $grey;
   border-radius: 5px;
-  margin: 50px auto 20px;
+
 
   p {
     @include font(p);
@@ -83,8 +83,12 @@
   width: 280px;
   height: 470px;
   transition: box-shadow 0.4s ease-in-out;
+  margin: 0 auto 30px;
   &:hover {
     box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.2);
+  }
+  &:active {
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
   }
   .icon {
     background-repeat: no-repeat;
@@ -97,7 +101,7 @@
 
     .icon-sailing {
       width: 42px;
-        margin:  11px auto 0;
+        margin: 11px auto 0;
     }
     .icon-food {
       width: 21.88px;
@@ -172,10 +176,15 @@
   max-width: 580px;
   width: 580px;
   height: 550px;
+  margin: 0 0 30px;
   transition: box-shadow 0.4s ease-in-out;
   &:hover {
     box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.2);
   }
+  &:active {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  }
+
   .icon {
     // background: url(../icon/hikingSummer.svg) 50% 50% no-repeat;
     background-repeat: no-repeat;
@@ -218,7 +227,7 @@
       width: 210px;
       height: 40px;
       overflow: hidden;
-      width: 403px;
+      width: 90%;
     }
     p {
       text-align: left;
@@ -246,31 +255,47 @@
 }
 
 #cards {
-  display: inline-flex;
-  overflow: hidden;
-  height: 650px
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  overflow: visible;
+  height: auto;
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include breakpoint(medium down){
+    justify-content: space-around;
+  }
 }
+
+#big-cards {
+  display: flex;
+  overflow: visible;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  @include breakpoint(large down) {
+    justify-content: center;
+  }
+}
+
 
 
 .hentry header {
   border-bottom: none;
 }
 
-#big-cards {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
 
-#cards {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
+
 
 .show-more {
   @include font(button);
+  display: block;
   color: $darkgrey;
+  max-width: 1180px;
   width: 100%;
   height: 43px;
   overflow: hidden;
@@ -278,17 +303,16 @@
   background-color: #fff;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  margin: rem-calc(30) auto;
   &:hover {
-    box-shadow: 0 1px 70px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 40px 0 rgba(0, 0, 0, 0.2);
     color: $darkgrey;
+  }
+  &:active {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   }
 }
 
-// .card:first-child {
-//   margin: 0 0 30px 0;
-//   float: left;
-// }
-// .card:last-child {
-//   margin: 0 0 30px 0;
-//   float: right;
-// }
+.card-container {
+  max-width: 280px;
+}

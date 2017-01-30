@@ -85,7 +85,7 @@ var JSONgetter = function(http, resultname){
          }
          var iconClass = activety;
          var card =
-          "<div class='small-12 medium-6 large-4 xlarge-3'>\
+          "<div class='small-12 medium-6 large-4 xlarge-3 card-container'>\
              <div id='' class='card' role='article' >\
                <a href='"+card.link+"'>\
                  <div class='image' style='background-image:url("+card.acf.img.sizes.medium+");'>\

@@ -110,7 +110,7 @@
     transition: all 0.3s ease-in-out;
     &:hover {
       background-color: $green;
-      border-radius: $height / 2;
+      border-radius: $height / $b-rad;
     }
   }
 

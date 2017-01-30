@@ -1,10 +1,10 @@
 <div class="wt-footer expanded row align-center">
   <div class="wt-footer-smedia medium-4">
     <ul class="wt-footer-smedia-list row align-spaced">
-      <li class="trip"><a href="#"><img src="<?php get_template_directory_uri(); ?>/wp/wp-content/themes/jt-bones/library/icon/tripadvisor-logotype.svg" alt="tripadvisor" /></a></li>
-      <li class="facebook"><a href="#"><img src="<?php get_template_directory_uri(); ?>/wp/wp-content/themes/jt-bones/library/icon/Facebook.svg" alt="" /></a></li>
-      <li class="twitter"><a href="#"><img src="<?php get_template_directory_uri(); ?>/wp/wp-content/themes/jt-bones/library/icon/Twitter.svg" alt="" /></a></li>
-      <li class="Instagram"><a href="#"><img src="<?php get_template_directory_uri(); ?>/wp/wp-content/themes/jt-bones/library/icon/Instagram.svg" alt="" /></a></li>
+      <li class="trip"><a href="#"><img src="<?php get_template_directory_uri(); ?>/west/wp-content/themes/foundationPressGit/assets/images/icons/tripadvisor-logotype.svg" alt="tripadvisor link icon" /></a></li>
+      <li class="facebook"><a href="#"><img src="<?php get_template_directory_uri(); ?>/west/wp-content/themes/foundationPressGit/assets/images/icons/Facebook.svg" alt="facebook link icon" /></a></li>
+      <li class="twitter"><a href="#"><img src="<?php get_template_directory_uri(); ?>/west/wp-content/themes/foundationPressGit/assets/images/icons/Twitter.svg" alt="twitter link icon" /></a></li>
+      <li class="Instagram"><a href="#"><img src="<?php get_template_directory_uri(); ?>/west/wp-content/themes/foundationPressGit/assets/images/icons/Instagram.svg" alt="instagram link icon" /></a></li>
     </ul>
   </div>
   <div class="wt-footer-adress-secton medium-12 row align-center">

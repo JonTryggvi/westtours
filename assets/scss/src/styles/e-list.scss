@@ -1,0 +1,39 @@
+.e-list {
+  display: flex;
+  height: 442px;
+  width: 100%;
+  background-color: #fff;
+  padding: 57px 0 61px;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  h2 {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+  p {
+    @include font(p);
+    color: $darkgrey;
+    width: 580px;
+    margin: 0 auto;
+  }
+  .e-mail {
+    width: 580px;
+    max-width: 580px;
+    margin: 0 auto;
+    border: 1px solid $grey;
+    color: $grey;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  .btn {
+    @include btn(#fff, $green, 180px, 43px,  25px auto 0);
+    background-color: $green;
+    color: #fff;
+    &:hover {
+      background-color: #fff;
+      border: 1px solid $green;
+      color: $green;
+    }
+  }
+}

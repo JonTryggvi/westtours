@@ -1,0 +1,90 @@
+.chapter-parent{
+  margin-top: 10vh;
+.chapter-red, .chapter-blue {
+  position: relative;
+  float: left;
+  width: 50vw;
+  height: 375px;
+  padding: 61px 0 0;
+  background-color: $red;
+  h2 {
+    @include font(h2);
+    color: #fff;
+  }
+  p {
+    @include font(p);
+    color: #fff;
+  }
+
+  .chapter-red-btn{
+    position: absolute;
+    box-sizing: border-box;
+    @include btn($red, #fff, 180px, 43px,  $margin:null);
+    background-color: #fff;
+    color: $red;
+    line-height: 43px;
+    bottom: 58px;
+    left: 50%;
+    margin-left: -90px;
+    transition: all .3s ease-in-out;
+    &:hover {
+      border: 1px solid #fff;
+      background-color: $red;
+      color: #fff;
+    }
+  }
+  .chapter-blue-btn {
+    position: absolute;
+    @include btn($blue, #fff, 180px, 43px,  $margin:null);
+    background-color: #fff;
+    color: $blue;
+    line-height: 43px;
+    bottom: 58px;
+    left: 50%;
+    margin-left: -90px;
+    transition: all .3s ease-in-out;
+    &:hover {
+      border: 1px solid #fff;
+      background-color: $blue;
+      color: #fff;
+    }
+  }
+  @include breakpoint(medium down) {
+    width: 100vw;
+  }
+}
+.chapter-red-img{
+  float: right;
+  width: 50vw;
+  height: 375px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include breakpoint(medium down) {
+    width: 100vw;
+
+  }
+}
+.chapter-blue {
+  float: right;
+  width: 50vw;
+  height: 375px;
+  background-color: $blue;
+  @include breakpoint(medium down) {
+    width: 100vw;
+
+  }
+}
+.chapter-blue-img{
+  float: left;
+  width: 50vw;
+  height: 375px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include breakpoint(medium down) {
+    width: 100vw;
+
+  }
+}
+}

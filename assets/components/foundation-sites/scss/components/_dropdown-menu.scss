@@ -191,10 +191,11 @@ $dropdownmenu-border-width: nth($dropdownmenu-border, 1);
 
   .is-dropdown-submenu {
     position: absolute;
-    top: 0;
+    top: -100vh;
     #{$global-left}: 100%;
     z-index: 1;
-
+    transform: scale(0);
+    transition: all 300ms ease;
     display: none;
     min-width: $dropdownmenu-min-width;
 
@@ -221,6 +222,8 @@ $dropdownmenu-border-width: nth($dropdownmenu-border, 1);
     //&:not(.js-dropdown-nohover) > .is-dropdown-submenu-parent:hover > &, // why is this line needed? Opening is handled by JS and this causes some ugly flickering when the sub is re-positioned automatically...
     &.js-dropdown-active {
       display: block;
+      top: 0;
+      transform: scale(1);
     }
   }
 }

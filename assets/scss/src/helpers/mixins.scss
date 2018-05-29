@@ -5,130 +5,166 @@
     font-weight: 600;
     color: $black;
   }
-  @elseif $type == h2 {
+  @if $type == h2 {
     font-family: $font;
     font-size: $h2Size;
     font-weight: 600;
     color: $black;
   }
-  @elseif $type == p {
+  @if $type == p {
     font-family: $font;
     font-size: $pSize;
     font-weight: 400;
     color: $darkgrey;
   }
-  @elseif $type == nav {
+  @if $type == cat {
+    font-family: $font;
+    font-size: rem-calc(14);
+    font-weight: 400;
+    color: $grey;
+  }
+  @if $type == mobileMenu {
+    font-family: $font;
+    font-size: rem-calc(18);
+    font-weight: 400;
+    color: $black;
+    text-transform: uppercase;
+  }
+  @if $type == nav {
     font-family: $font;
     font-size: 1em;
     font-weight: 600;
     color: $black;
     transition: color, text-decoration 0.3s ease-in-out;
-    &:hover, &:active {
+
+    &:active,
+    &:hover {
       color: $green;
     }
+    @include breakpoint(large down) {
+      font-size: 0.8em;
+    }
+    @include breakpoint(medium down) {
+      font-size: 0.6em;
+    }
   }
-  @elseif $type == a {
+  @if $type == a {
     font-family: $font;
     font-size: $pSize;
     font-weight: 400;
     color: $darkgrey;
     text-decoration: none;
     transition: color, text-decoration 0.3s ease-in-out;
-    &:hover, &:active {
+
+    &:active,
+    &:hover {
       color: $green;
     }
   }
- @elseif $type == label {
-   font-family: $font;
-   font-size: 14px;
-   font-weight: 600;
-   color: $green;
- }
- @elseif $type == filter {
-   font-family: $font;
-   font-size: 18px;
-   font-weight: 600;
-   color: $grey;
- }
- @elseif $type == date {
-   font-family: $font;
-   font-size:14px;
-   font-weight: 600px;
-   color: $grey;
- }
- @else if $type == button {
-   font-family: $font;
-   font-size: 16px;
-   font-weight: 600;
-   color: $green;
-   text-align: center;
-   letter-spacing: -0.32px;
-   &:hover {
-     color: #fff;
-   }
-   @elseif $type == footer {
+  @if $type == label {
     font-family: $font;
     font-size: 14px;
-    font-weight: 400;
-    color: $grey;
-    letter-spacing: -0.28px;
-  }
-  @elseif $type == mail {
-  font-family: $font;
-  font-size: 14px;
-  font-weight: 400;
-  color: $grey;
-  letter-spacing: -0.28px;
-  &:hover{
+    font-weight: 600;
     color: $green;
   }
- }
-}
+  @if $type == filter {
+    font-family: $font;
+    font-size: 18px;
+    font-weight: 400;
+    color: $darkgrey;
+  }
+  @if $type == date {
+    font-family: $font;
+    font-size: 14px;
+    font-weight: 600px;
+    color: $grey;
+  }
+   @if $type == button {
+    font-family: $font;
+    font-size: 16px;
+    font-weight: 600;
+    color: $green;
+    text-align: center;
+    letter-spacing: -0.32px;
+
+    &:hover {
+      color: #fff;
+    }
+    @if $type == footer {
+      font-family: $font;
+      font-size: 14px;
+      font-weight: 400;
+      color: $grey;
+      letter-spacing: -0.28px;
+    }
+    @if $type == mail {
+      font-family: $font;
+      font-size: 14px;
+      font-weight: 400;
+      color: $grey;
+      letter-spacing: -0.28px;
+
+      &:hover {
+        color: $green;
+      }
+      @include breakpoint(small down) {
+        color: $darkgrey;
+      }
+    }
+  }
 }
 
 @mixin button {
+  border: 1px solid $green;
   background-color: $green;
-  border-radius: 5px;
+  border-radius: 20px;
   color: #fff;
-  width:135px;
+  width: 135px;
   height: 40px;
   font-size: 1rem;
   font-family: $font;
   cursor: pointer;
+  transition: all 300ms ease;
+
+  &:hover {
+    background-color: #fff;
+    color: $green;
+  }
 }
 
+@mixin btn($color, $hoverColor, $width, $height, $margin:null, $b-rad:2) {
+  @include font(button);
+  width: $width;
+  height: $height;
+  margin: $margin;
+  overflow: hidden;
+  border: 1px solid $color;
+  background-color: transparent;
+  border-radius: $height / $b-rad;
+  transition: all 0.3s ease-in-out;
 
-@mixin btn($color, $hoverColor, $width, $height,  $margin:null, $b-rad:2) {
-    @include font(button);
-    width: $width;
-    height: $height;
-    margin: $margin;
-    overflow: hidden;
-    border: 1px solid $color;
-    background-color: transparent;
+  &:hover {
+    color: $green;
+    background-color: $hoverColor;
     border-radius: $height / $b-rad;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      background-color: $green;
-      border-radius: $height / $b-rad;
-    }
   }
+}
 
-  //position
-  @mixin position($width, $height, $top:null, $right:null, $bottom:null, $left:null) {
-    position: absolute;
-    content: '';
-    width: $width;
-    height: $height;
-    top:$top;
-    right:$right;
-    bottom:$bottom;
-    left: $left;
-  }
+//position
+@mixin position($width, $height, $top:null, $right:null, $bottom:null, $left:null) {
+  position: absolute;
+  content: '';
+  width: $width;
+  height: $height;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
 
-  @mixin borderLines($t, $r, $b, $l, $color){
-    border-top: $t solid $color;
-    border-right: $r solid $color;
-    border-bottom: $b solid $color;
-    border-left: $l solid $color;
-  }
+@mixin borderLines($t, $r, $b, $l, $color) {
+  border-top: $t solid $color;
+  border-right: $r solid $color;
+  border-bottom: $b solid $color;
+  border-left: $l solid $color;
+}

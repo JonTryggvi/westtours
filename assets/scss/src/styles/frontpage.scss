@@ -3,39 +3,65 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 800px;
+  // background-attachment: fixed;
+  height: 100vh;
 
-  @include breakpoint(small down){
+  @include breakpoint(small down) {
     background-position: 50%;
     background-size: cover;
     height: 667px;
-  }
-  &::after {
-    @include breakpoint(small down) {
-      @include position(38px, 21px, null, null, 20px, 50%);
-      margin-left: -(38/2)*1px;
 
-      background: url('../images/icons/downArrow.svg') no-repeat 50% 50%;
-      background-size: contain;
-      z-index: 999;
-      // background-color: red;
+    &::before {
+      position: absolute;
+      content: '';
+      background-image: url("../images/icons/logo-undertext.svg");
+      width: 90px;
+      height: 76px;
+      top: 15px;
+      left: 50%;
+      margin-left: -45px;
     }
+  }
+
+  &::after {
+    @include position(38px, 21px, null, null, 20px, 50%);
+    margin-left: -(38/2)*1px;
+    background: url("../images/icons/downArrow.svg") no-repeat 50% 50%;
+    background-size: contain;
+    z-index: 1;
+    // background-color: red;
+    @include breakpoint(small down) {}
 
   }
 }
 
 .front-bigCards-container {
+  width: 100%;
+
   h1 {
     text-align: center;
     margin-bottom: rem-calc(32);
   }
-
+  @include breakpoint(large down) {
+    width: 90%;
+  }
 }
 
 .front-smallCards-container {
+  width: 100%;
   margin-top: rem-calc(50);
+
   h1 {
     text-align: center;
-    margin-bottom: rem-calc(32)
+    margin-bottom: rem-calc(32);
   }
+  @include breakpoint(large down) {
+    width: 90%;
+  }
+}
+
+#page-full-width {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

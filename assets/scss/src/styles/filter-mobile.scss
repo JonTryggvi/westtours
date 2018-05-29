@@ -1,0 +1,224 @@
+.frmNavActivety {
+  position: relative;
+  height: 90vh;
+}
+
+.frmAll {
+  width: 100%;
+}
+
+.frm {
+  position: absolute;
+  top: 0;
+  left: -105vw;
+  width: 100vw;
+  overflow: hidden;
+  transition: all 300ms ease;
+}
+
+.showFrm {
+  left: 0;
+}
+
+.search-field__results {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: white;
+  top: 92px;
+  left: -10px;
+  width: 580px;
+  height: 0;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.2);
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 99999999999999999;
+
+  &::before {
+    @include css-triangle(15px, white, 'up');
+    position: absolute;
+    top: 0;
+    left: 30px;
+  }
+  @include breakpoint(small down) {
+    width: 90%;
+    left: 5%;
+    top: 85px;
+    box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+  }
+
+  .resultItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    z-index: 1000;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 300ms ease;
+
+    .result_season {
+      color: $grey;
+      @include breakpoint(small down) {
+        display: none;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      color: $green;
+    }
+  }
+}
+
+.searchActive {
+  padding: 10px 0;
+  height: auto;
+  overflow: visible;
+  z-index: 99999999;
+
+  &::before {
+    @include css-triangle(15px, white, 'up');
+    position: absolute;
+    top: -15px;
+    left: 30px;
+  }
+}
+
+#mobileCal {
+  overflow: hidden;
+}
+
+.frmParty {
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .counterContainer {
+    position: relative;
+    top: 10vh;
+    left: 0;
+    background-color: #fff;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    // transform: scale(0);
+    transition: transform 300ms ease;
+
+    z-index: 999999;
+
+    &::before {
+      display: none;
+    }
+
+    &__listitem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      height: 50px;
+      border-bottom: 1px solid $lightgrey;
+      color: $grey;
+
+      label {
+        display: inline-flex;
+        flex-direction: row;
+        width: 30px;
+        height: inherit;
+        align-items: center;
+        @include font(filter);
+        font-size: 16px;
+        // padding-left: 15px;
+        color: $grey;
+
+        input {
+          width: 100%;
+          height: 20px;
+          padding: 0;
+          background-color: #fff;
+          color: $green;
+          border: none;
+          box-shadow: none;
+
+        }
+      }
+
+      span {
+        padding-left: 0;
+        color: $grey;
+        width: 100%;
+        margin-left: 20px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 30%;
+      }
+
+    }
+
+    button {
+      height: 20px;
+      width: 20px;
+      color: $green;
+      margin: 10px;
+      border: none;
+      background-color: transparent;
+    }
+
+    .btnPlus {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 2px;
+        background-color: $green;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        height: 20px;
+        width: 2px;
+        background-color: $green;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .btnMinus {
+      position: relative;
+      background-color: transparent;
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 2px;
+        background-color: $green;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .btnCloseCount {
+      width: 100%;
+    }
+  }
+
+}

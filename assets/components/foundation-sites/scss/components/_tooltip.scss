@@ -48,13 +48,13 @@ $tooltip-radius: $global-radius !default;
 
   border-bottom: $has-tip-border-bottom;
   font-weight: $has-tip-font-weight;
-  cursor: help;
+  cursor: pointer;
 }
 
 @mixin tooltip {
   position: absolute;
   top: calc(100% + #{$tooltip-pip-height});
-  z-index: 1200;
+  z-index: 12;
 
   max-width: 10rem;
   padding: $tooltip-padding;

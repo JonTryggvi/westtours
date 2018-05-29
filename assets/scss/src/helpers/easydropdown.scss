@@ -4,24 +4,24 @@
 
 .easy-dropdown,
 .easy-dropdown div,
-.easy-dropdown li,
-.easy-dropdown div::after{
+.easy-dropdown div::after,
+.easy-dropdown li {
 	transition: all 0.3s ease-in-out;
 }
 
-
 .easy-dropdown .selected::after,
-.easy-dropdown.scrollable div::after{
+.easy-dropdown.scrollable div::after {
 	pointer-events: none;
 
 }
+
 .selected::after {
 	background: transparent;
 }
 
 /* WRAPPER */
 
-.easy-dropdown{
+.easy-dropdown {
 	position: relative;
 	width: 160px;
 	border: none;
@@ -29,23 +29,26 @@
 	background: transparent;
 	border-radius: 3px;
 	user-select: none;
+	@include breakpoint(xlarge down) {
+		width: 114px;
+	}
 }
 
-.easy-dropdown.open{
+.easy-dropdown.open {
 	z-index: 2;
 }
 
-.easy-dropdown:hover{
+.easy-dropdown:hover {
 	// box-shadow: 0 0 5px rgba(0,0,0,.15);
 }
 
-.easy-dropdown.focus{
+.easy-dropdown.focus {
 	// box-shadow: 0 0 5px rgba(51,102,248,.4);
 }
 
 /* CARAT */
 
-.easy-dropdown .carat{
+.easy-dropdown .carat {
 	position: absolute;
 	right: 12px;
 	top: 50%;
@@ -54,19 +57,19 @@
 	// border-top: 8px solid #000;
 }
 
-.easy-dropdown.open .carat{
+.easy-dropdown.open .carat {
 	margin-top: -10px;
 	border-top: 6px solid transparent;
 	border-bottom: 8px solid #000;
 }
 
-.easy-dropdown.disabled .carat{
+.easy-dropdown.disabled .carat {
 	border-top-color: #999;
 }
 
 /* OLD SELECT (HIDDEN) */
 
-.easy-dropdown .old{
+.easy-dropdown .old {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -75,18 +78,18 @@
 	overflow: hidden;
 }
 
-.easy-dropdown select{
+.easy-dropdown select {
 	position: absolute;
-	left: 0px;
-	top: 0px;
+	left: 0;
+	top: 0;
 }
 
-.easy-dropdown.touch .old{
+.easy-dropdown.touch .old {
 	width: 100%;
 	height: 100%;
 }
 
-.easy-dropdown.touch select{
+.easy-dropdown.touch select {
 	width: 100%;
 	height: 100%;
 	opacity: 0;
@@ -95,23 +98,23 @@
 /* SELECTED FEEDBACK ITEM */
 
 .easy-dropdown .selected,
-.easy-dropdown li{
+.easy-dropdown li {
 	display: block;
 	font-size: 18px;
 	line-height: 1;
-  @include font(nav);
-  text-transform: uppercase;
+	@include font(nav);
+	text-transform: uppercase;
 	color: $black;
-	padding: 9px 12px;
+	// padding: 9px 12px;
 	overflow: hidden;
 	white-space: nowrap;
 }
 
-.easy-dropdown.disabled .selected{
+.easy-dropdown.disabled .selected {
 	color: #999;
 }
 
-.easy-dropdown .selected::after{
+.easy-dropdown .selected::after {
 	content: '';
 	position: absolute;
 	right: 0;
@@ -124,7 +127,7 @@
 
 /* DROP DOWN WRAPPER */
 
-.easy-dropdown div{
+.easy-dropdown div {
 	position: absolute;
 	height: 0;
 	left: -1px;
@@ -132,35 +135,37 @@
 	top: 55px;
 	margin-top: -1px;
 	background: #fff;
+	min-width: 200px;
 	// border: 1px solid #ccc;
 	// border-top: 1px solid #eee;
 	border-radius: 0 0 3px 3px;
 	overflow: hidden;
 	opacity: 0;
+
 	.relativer {
 		position: relative;
-		left:0;
-		top:0;
+		left: 0;
+		top: 0;
+
 		&::before {
 			position: absolute;
-			top:100px;
+			top: 100px;
 			@include css-triangle(10px, #fff, up);
 		}
 	}
-
 
 }
 
 /* Height is adjusted by JS on open */
 
-.easy-dropdown.open div{
+.easy-dropdown.open div {
 	opacity: 1;
 	z-index: 2;
 }
 
 /* FADE OVERLAY FOR SCROLLING LISTS */
 
-.easy-dropdown.scrollable div::after{
+.easy-dropdown.scrollable div::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -170,13 +175,13 @@
 	// box-shadow: inset 0 -50px 30px -35px #fff;
 }
 
-.easy-dropdown.scrollable.bottom div::after{
+.easy-dropdown.scrollable.bottom div::after {
 	opacity: 0;
 }
 
 /* DROP DOWN LIST */
 
-.easy-dropdown ul{
+.easy-dropdown ul {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -184,30 +189,34 @@
 	width: 100%;
 	list-style: none;
 	overflow: hidden;
-	    margin: 5% 0 0;
-				@include css-triangle(10px, #fff, up);
+	margin: 5% 0 0;
+	@include css-triangle(10px, #fff, up);
 }
 
-.easy-dropdown.scrollable.open ul{
+.easy-dropdown.scrollable.open ul {
 	overflow-y: auto;
+	padding: 0;
 }
 
 /* DROP DOWN LIST ITEMS */
 
-.easy-dropdown li{
+.easy-dropdown li {
 	list-style: none;
-	padding: 8px 12px;
+	padding: 0;
+	width: 100%;
 }
 
 /* .focus class is also added on hover */
 
-.easy-dropdown li.focus{
-	background: #d24a67;
+.easy-dropdown li.focus {
+	background: $green;
 	position: relative;
 	z-index: 3;
 	color: #fff;
+	width: 100%;
 }
 
-.easy-dropdown li.active{
+.easy-dropdown li.active {
 	font-weight: 700;
+	width: 100%;
 }

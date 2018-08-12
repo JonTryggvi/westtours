@@ -112,12 +112,13 @@ function checkAvailable(id) {
 
 }
 // console.log(isEnglish);
+
 switch (isEnglish) {
   case '1':
-    var apiUrl = '/wp-json/wp/v2/tour_post_type?per_page=100&lang=en';
+    var apiUrl = 'wp-json/wp/v2/tour?per_page=100&lang=en';
     break;
   case '0':
-    var apiUrl = '/wp-json/wp/v2/tour_post_type?per_page=100&lang=is';
+    var apiUrl = 'wp-json/wp/v2/tour?per_page=100&lang=is';
     break;
   default:
 }

@@ -28,7 +28,8 @@ function checkAvailableInPost(id) {
   $("#loader").fadeIn(500);
   $.post(templateUrl + "/library/bokun.php?checkAvailable=true", {
     "tripId": id
-  }, function(data) {
+  }, function (data) {
+      console.log(data);
     var aData = JSON.parse(data);
 
     var aTripDates = [];

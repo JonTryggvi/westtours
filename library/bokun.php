@@ -19,7 +19,7 @@
   $themeDir = get_bloginfo('template_directory');
 
   $localJSONTours = callToAPI($rootUrl.'/library/detailedtrips.json');
-  $wpTours = callToAPI($root.'/wp-json/wp/v2/tour_post_type?per_page=100');
+  $wpTours = callToAPI($root.'/wp-json/wp/v2/tour?per_page=100');
   // var_dump($wpTours);
 
 
@@ -234,7 +234,7 @@
 
   if (isset($_GET['updatetours']) && $_GET['updatetours']=='update') {
     // dummy post if there is no tour post in system
-    $hasposts = get_posts('post_type=tour_post_type');
+    $hasposts = get_posts('post_type=tour');
     // var_dump($hasposts);
     sleep(3);
     if(empty($hasposts)){
@@ -242,7 +242,7 @@
         'post_title' => 'test',
         'post_content' => 'test',
         'post_status' => 'publish',
-        'post_type' => 'tour_post_type'
+        'post_type' => 'tour'
       );
           // Insert the post into the database
       $dummypost_id = wp_insert_post($dummyPost);

@@ -230,7 +230,7 @@ get_header(); ?>
     </div>
     <div id="modalSlides" class="owl-carousel tourModal__slides">
       <?php foreach( $tourGallery as $image ): ?>
-           <div class="tourModal__slides__slide" style="background-image:url(<?php echo $image['sizes']['large'] ?>)">
+           <div class="tourModal__slides__slide" data-interchange="[<?php echo $image['sizes']['fp-small'] ?>, small], [<?php echo $image['sizes']['fp-medium'] ?>, medium], [<?php echo $image['sizes']['fp-large'] ?>, large], [<?php echo $image['sizes']['fp-large'] ?>, xlarge], [<?php echo $image['sizes']['fp-retina'] ?>, xxlarge]">
 
            </div>
        <?php endforeach; ?>
@@ -258,7 +258,7 @@ get_header(); ?>
 
 		<?php do_action('foundationpress_post_before_entry_content'); ?>
 		<div class="entry-content <?php if(!$filter){echo 'setCalendar';} ?>">
-			<section id="postImage" class="post-image" style="background-image: url(<?php if(!$nutrition_image){ echo $img; }else {echo $imgX2;} ?>);">
+			<section id="postImage" class="post-image" data-interchange="[<?php echo $nutrition_image['sizes']['fp-small'] ?>, small], [<?php echo $nutrition_image['sizes']['fp-medium'] ?>, medium], [<?php echo $nutrition_image['sizes']['fp-medium'] ?>, large], [<?php echo $nutrition_image['sizes']['fp-large'] ?>, xlarge], [<?php echo $nutrition_image['sizes']['fp-retina'] ?>, xxlarge]">
         <span class="tooltiper has-tip top right" data-tooltip aria-haspopup="true" data-click-open="false" data-disable-hover="false" tabindex="1" title="Click for slideshow."></span>
 
         <div class="single-booked">
@@ -425,12 +425,15 @@ get_header(); ?>
 
 
       <?php endif; ?>
+      <?php if($location):?>
       <section class="map-container">
+
         <h2><?php echo $transMapView; ?></h2>
       </section>
       <section id="theMap" class="acf-map">
         <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
       </section>
+    <?php endif; ?>
 
 		</div>
     	<?php edit_post_link(__('Edit', 'foundationpress'), '<span class="edit-link">', '</span>'); ?>
@@ -469,7 +472,7 @@ $alt = $nutrition_image['alt'];
  }
 ?>
 <h2 style="text-align: center;">Did you know?</h2>
-<section class="fw chapter-parent chapter-single-page">
+<section class="fw chapter-parent chapter-single-page left">
 
   <div class="row align-center small-12 medium-12 large-6 chapter-<?php echo $color; ?>">
     <div class="small-10 small-offset-1">
@@ -482,7 +485,7 @@ $alt = $nutrition_image['alt'];
     <a class="chapter-<?php echo $color; ?>-btn" href="<?php echo get_permalink(); ?>">Read More</a>
   </div>
 
-  <div class="small-12 medium-12 large-6 chapter-<?php echo $color; ?>-img" style="background-image:url(<?php echo $img_info ?>);">
+  <div class="small-12 medium-12 large-6 chapter-<?php echo $color; ?>-img" data-interchange="[<?php echo $nutrition_image['sizes']['fp-small'] ?>, small], [<?php echo $nutrition_image['sizes']['fp-medium'] ?>, medium], [<?php echo $nutrition_image['sizes']['fp-large'] ?>, large], [<?php echo $nutrition_image['sizes']['fp-large'] ?>, xlarge], [<?php echo $nutrition_image['sizes']['fp-retina'] ?>, xxlarge]">
 
   </div>
 
@@ -495,7 +498,7 @@ $alt = $nutrition_image['alt'];
     <div id="cardsPost" class="cards owl-carousel test">
       <?php # echo do_shortcode('[ajax_load_more id="smallCardId" posts_per_page="4" container_type="div" post_type="tour_post_type" scroll_container="#cards" button_label="Show more trips" button_loading_label="Hang on!"]');?>
       <?php
-        $args2 = array( 'post_type' => 'tour_post_type' );
+        $args2 = array( 'post_type' => 'tour' );
         $query_smallCards = new WP_Query($args2);
         if ($query_smallCards->have_posts()): while ($query_smallCards->have_posts()) : $query_smallCards->the_post();
           get_template_part( 'template-parts/smallcards', get_post_format() );
@@ -503,7 +506,7 @@ $alt = $nutrition_image['alt'];
     </div>
     <!-- <button id="btnShowMore" type="button" class="show-more" name="button">Show more trips</button> -->
   </section>
-  <?php var_dump($_GET); if($_GET['success'] == 'false'): ?>
+  <?php if($_GET['success'] == 'false'): ?>
   <div class="failedTranAction scaleupModal">
     <div class="close_scaleup closeFunction">
       <span></span>

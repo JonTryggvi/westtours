@@ -64,7 +64,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/assets/javascript/foundation.js', array('jquery'), '2.9.0', true );
 	global $wp_query;
 	// var_dump($isEnglish);
-	$trips = get_post_type_object( 'tour_post_type' );
+	$trips = get_post_type_object( 'tour' );
 	$translation_array = array(
 		'templateUrl' => get_stylesheet_directory_uri(),
 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php',
@@ -74,7 +74,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 //after wp_enqueue_script
 	wp_localize_script( 'foundation', 'themeUrl', $translation_array );
 
-	if(is_singular('tour_post_type')) {
+	if(is_singular('tour')) {
 		wp_enqueue_script( 'tour-post-type', get_template_directory_uri() . '/assets/javascript/tours.js', array('jquery'), '2.9.0', true );
 	}
 

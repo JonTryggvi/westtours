@@ -74,7 +74,7 @@ function checkAvailable(id) {
   $.post(templateUrl + "/library/bokun.php?checkAvailable=true", {
       "tripId": id
     }, function(data) {
-      // console.log(data);
+    //   console.log(data);
       var aData = JSON.parse(data);
       // console.log(aData);
       var aTripDates = [];
@@ -112,13 +112,13 @@ function checkAvailable(id) {
 
 }
 // console.log(isEnglish);
-
+// console.log(rootUrl)
 switch (isEnglish) {
   case '1':
-    var apiUrl = 'wp-json/wp/v2/tour?per_page=100&lang=en';
+    var apiUrl = '/wp-json/wp/v2/tour?per_page=100&lang=en';
     break;
   case '0':
-    var apiUrl = 'wp-json/wp/v2/tour?per_page=100&lang=is';
+    var apiUrl = '/wp-json/wp/v2/tour?per_page=100&lang=is';
     break;
   default:
 }

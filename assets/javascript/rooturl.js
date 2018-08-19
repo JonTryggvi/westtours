@@ -4,7 +4,7 @@ var isEnglish = themeUrl.isEnglish;
 
 
 var rootUrl = window.location.origin;
-if (rootUrl === "http://localhost:3000" || rootUrl === "http://localhost:8888" || rootUrl === "https://localhost") {
+if (rootUrl === "http://localhost:3000" || rootUrl === "http://localhost:8888" || rootUrl === "http://localhost") {
   rootUrl = rootUrl + "/westtours/";
 } else {
   rootUrl = window.location.origin;
@@ -21,4 +21,13 @@ function isDescendant(parent, child) {
     node = node.parentNode;
   }
   return false;
+}
+
+function IsJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
 }

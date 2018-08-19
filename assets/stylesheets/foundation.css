@@ -14159,7 +14159,6 @@ div.calendarPost {
       div.calendarPost .month-wrapper table tbody td div.day.nextMonth {
         display: block;
         color: #ccc; }
-      div.calendarPost .month-wrapper table tbody td,
       div.calendarPost .month-wrapper table tbody td .day.hovering {
         color: #56B881;
         background-color: #fff !important;
@@ -14624,6 +14623,11 @@ div.calendarPost {
           -ms-flex-pack: justify;
               justify-content: space-between;
       width: 50%; }
+      .wt-footer .wt-footer-smedia .wt-footer-smedia-list li a svg g > g {
+        -webkit-transition: fill 300ms ease;
+        transition: fill 300ms ease; }
+      .wt-footer .wt-footer-smedia .wt-footer-smedia-list li:hover a svg g > g {
+        fill: #56B881; }
       @media screen and (max-width: 46.1875em) {
         .wt-footer .wt-footer-smedia .wt-footer-smedia-list {
           width: 90%;
@@ -16687,5 +16691,100 @@ h2 {
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1); }
+
+.about-banner {
+  top: 0;
+  left: 0;
+  height: 450px;
+  width: 100%; }
+
+.about-icon {
+  margin-top: 40px; }
+  .about-icon svg {
+    width: 40px;
+    fill: #56B881; }
+
+.tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  border-top: 1px solid #e6e6e6;
+  border-right: none;
+  border-bottom: 1px solid #e6e6e6;
+  border-left: none;
+  margin-bottom: 56px;
+  width: 83.33333%;
+  float: left;
+  padding-right: 0.15625rem;
+  padding-left: 0.15625rem;
+  position: relative;
+  left: 8.33333%; }
+  @media print, screen and (min-width: 46.25em) {
+    .tabs {
+      padding-right: 0.15625rem;
+      padding-left: 0.15625rem; } }
+  .tabs:last-child:not(:first-child) {
+    float: right; }
+  @media screen and (max-width: 46.1875em) {
+    .tabs {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column;
+              flex-flow: column; } }
+
+.tabs .is-active a {
+  background-color: #56b881;
+  color: #fff; }
+
+.tabs li a {
+  height: 52px;
+  font-size: 1rem;
+  color: #56b881;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease; }
+  .tabs li a:hover {
+    background-color: #56b881;
+    color: #fff; }
+  @media screen and (max-width: 63.9375em) {
+    .tabs li a {
+      font-size: 12px; } }
+  @media screen and (max-width: 46.1875em) {
+    .tabs li a {
+      font-size: 16px; } }
+
+.tabs li {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 52px; }
+  @media screen and (max-width: 46.1875em) {
+    .tabs li {
+      width: 100%; } }
+
+.tabs-content {
+  border: 1px solid #e6e6e6;
+  border-top: 0;
+  background: #fefefe;
+  color: #0a0a0a;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease; }
+
+.h2-wrapper {
+  width: 83.33333%;
+  float: left;
+  padding-right: .15625rem;
+  padding-left: .15625rem;
+  position: relative;
+  left: 8.33333%;
+  margin: 0 auto 56px; }
 
 /*# sourceMappingURL=foundation.css.map */

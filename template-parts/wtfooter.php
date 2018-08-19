@@ -1,10 +1,23 @@
+<?php
+$facebook = get_field('facebook', 'option');
+$tripadvisor = get_field('tripadvisor', 'option');
+$twitter = get_field('twitter', 'option');
+$instagram = get_field('instagram', 'option');
+
+?>
+
 <div class="wt-footer">
   <div class="wt-footer-smedia">
     <ul class="wt-footer-smedia-list">
-      <li class="trip"><a href="#"><img src="<?php echo get_template_directory_uri().'/assets/images/icons/tripadvisor-logotype.svg'; ?>" alt="tripadvisor link icon" /></a></li>
-      <li class="facebook"><a href="#"><img src="<?php echo get_template_directory_uri(). '/assets/images/icons/Facebook.svg'; ?>" alt="facebook link icon" /></a></li>
-      <li class="twitter"><a href="#"><img src="<?php echo get_template_directory_uri(). '/assets/images/icons/Twitter.svg'; ?>" alt="twitter link icon" /></a></li>
-      <li class="Instagram"><a href="#"><img src="<?php echo get_template_directory_uri().'/assets/images/icons/Instagram.svg'; ?>" alt="instagram link icon" /></a></li>
+      <?php if ($tripadvisor): ?>
+      <li class="trip"><a href="<?php echo $tripadvisor; ?>"><?php echo get_template_part('assets/images/icons/tripadvisor-logotypep'); ?></a></li>
+    <?php endif;if ($facebook): ?>
+      <li class="facebook"><a href="<?php echo $facebook; ?>"><?php echo get_template_part('assets/images/icons/facebookp'); ?></a></li>
+    <?php endif;if ($twitter): ?>
+      <li class="twitter"><a href="<?php echo $twitter; ?>"><?php echo get_template_part('assets/images/icons/twitterp'); ?></a></li>
+    <?php endif;if ($instagram): ?>
+      <li class="Instagram"><a href="<?php echo $instagram; ?>"><?php echo get_template_part('assets/images/icons/instagramp'); ?></a></li>
+    <?php endif;?>
     </ul>
   </div>
   <div class="wt-footer-adress-secton ">
@@ -17,3 +30,4 @@
     </ul>
   </div>
 </div>
+

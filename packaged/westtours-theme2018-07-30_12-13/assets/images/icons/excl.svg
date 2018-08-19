@@ -1,0 +1,14 @@
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs></defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Style-Guide" transform="translate(-651.000000, -1102.000000)">
+      <g id="Group-10" transform="translate(652.000000, 1103.000000)">
+        <g id="Group-8" transform="translate(21.000000, 14.000000)" fill="#D0021B">
+          <rect id="Rectangle-9-Copy-6" transform="translate(2.000000, 6.500000) rotate(90.000000) translate(-2.000000, -6.500000) " x="-4.5" y="4.5" width="13" height="4"></rect>
+          <rect id="Rectangle-9-Copy-7" transform="translate(2.000000, 17.000000) rotate(90.000000) translate(-2.000000, -17.000000) " x="3.55271368e-15" y="15" width="4" height="4"></rect>
+        </g>
+        <circle id="Oval-2" stroke="#D0021B" stroke-width="2" cx="23" cy="23" r="23"></circle>
+      </g>
+    </g>
+  </g>
+</svg>

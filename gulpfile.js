@@ -15,7 +15,7 @@ var cleanCSS = require('gulp-clean-css');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'http://localhost:8888/westtours';
+var URL = 'http://localhost/westtours';
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -56,7 +56,7 @@ var PATHS = {
     'assets/components/foundation-sites/js/foundation.dropdown.js',
     'assets/components/foundation-sites/js/foundation.dropdownMenu.js',
     // 'assets/components/foundation-sites/js/foundation.equalizer.js',
-    // 'assets/components/foundation-sites/js/foundation.interchange.js',
+    'assets/components/foundation-sites/js/foundation.interchange.js',
     // 'assets/components/foundation-sites/js/foundation.magellan.js',
     'assets/components/foundation-sites/js/foundation.offcanvas.js',
     // 'assets/components/foundation-sites/js/foundation.orbit.js',
@@ -65,7 +65,7 @@ var PATHS = {
     // 'assets/components/foundation-sites/js/foundation.reveal.js',
     // 'assets/components/foundation-sites/js/foundation.slider.js',
     // 'assets/components/foundation-sites/js/foundation.sticky.js',
-    // 'assets/components/foundation-sites/js/foundation.tabs.js',
+    'assets/components/foundation-sites/js/foundation.tabs.js',
     'assets/components/foundation-sites/js/foundation.toggler.js',
     'assets/components/foundation-sites/js/foundation.tooltip.js',
 

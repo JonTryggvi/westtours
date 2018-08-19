@@ -54,6 +54,7 @@ require_once( 'library/custom-post-types/wiki-posts.php' );
 require_once( 'library/set-category.php' );
 require_once( 'library/google-maps-register.php' );
 require_once( 'library/ajax-handler.php' );
+require_once( 'library/acf-options.php' );
 // require_once( 'library/acf.php' );
 // require_once('library/bokun.php');
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */

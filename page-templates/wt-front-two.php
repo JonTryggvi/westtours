@@ -57,7 +57,7 @@ get_header(); ?>
 <div id="page-full-width" role="main">
 <?php do_action('foundationpress_before_content'); ?>
 <?php
-  $args = array( 'post_type' => 'tour_post_type','posts_per_page' => -1 );
+  $args = array( 'post_type' => 'tour','posts_per_page' => -1 );
   $query = new WP_Query($args);
   $tripId = get_field('bokun_id');
  
@@ -150,8 +150,11 @@ get_header(); ?>
           // }
           $excerpt = get_the_excerpt();
           $excerpt = substr($excerpt, 0, 180);
-          $cardImg = get_field('info_img');
-          $img = $cardImg['sizes']['info-img-sizer'];
+          $cardImgRaw = get_field('info_img');
+          $bokunImg = get_field('bokun_img');
+
+          $cardImg = $cardImgRaw['sizes']['info-img-sizer'];
+         
           if ($isPopular != null)  :
           $postCount++;
           $exclude_posts[] = $post->ID;
@@ -160,10 +163,10 @@ get_header(); ?>
         ?>
         <div class="card-large navCard" role="article" data-tripid="<?php echo $tripId ?>">
           <a href="<?php the_permalink(); ?>">
-            <?php if (!$cardImg): ?>
-            <div class="image" style="background-image:url('<?php echo $bokunImg; ?>');"></div>
-            <?php else: ?>
-            <div class="image" style="background-image:url('<?php echo $img; ?>');"></div>
+            <?php if ($cardImg): ?>
+            <div class="image" style="background-image:url(<?php echo $cardImg; ?>);"></div>
+            <?php else:  var_dump($bokunImg)?>
+            <div class="image" style="background-image:url(<?php echo $bokunImg; ?>);"></div>
             <?php endif; ?>
             <div class="icon" style="background-image:url(<?php echo get_template_directory_uri().'/assets/images/icons/catIcons/'.$mainActivetyIcon.'.svg'; ?>);"></div>
             <p class="cat-string"> <?php echo str_replace('_', ' ', $mainActivety); ?> / <?php echo $season; ?> </p>
@@ -194,7 +197,7 @@ get_header(); ?>
               'field' => 'term_id'
             );
         // var_dump($exclude_posts);
-        $args2 = array( 'post_type' => 'tour_post_type', 'posts_per_page'=> 4, 'offset'=>0, 'paged' => 1, 'tax_query' => array($customTermArr));
+        $args2 = array( 'post_type' => 'tour', 'posts_per_page'=> 4, 'offset'=>0, 'paged' => 1, 'tax_query' => array($customTermArr));
         $query_smallCards = new WP_Query($args2);
         $int = 0;
         if ($query_smallCards->have_posts()): while ($query_smallCards->have_posts()) : $query_smallCards->the_post();

@@ -3,11 +3,14 @@ session_start();
 // $sSession = stripslashes($_COOKIE['selectedTrip']);
 // $oSession = json_decode( $sSession );
 $classes = get_body_class();
-if (in_array('single-tour_post_type',$classes)) {
+if (in_array('single-tour',$classes)) {
     $tourPost = 'filter-container-post';
+
 } else {
     $tourPost = '';
+
 }
+
 $hasGet = false;
 
 // English to Icelandic

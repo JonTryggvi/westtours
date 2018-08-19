@@ -7,6 +7,8 @@ $nutrition_image = get_field('info_img');
 $img = $nutrition_image['sizes']['info-img-sizer'];
 $alt = $nutrition_image['alt'];
 
+
+
 $activeties = get_field('activety');
 if (gettype($activeties)=="array") {
     $activety_small = $activeties;

@@ -25,10 +25,23 @@
     justify-content: center;
 
     .wt-footer-smedia-list {
-      position: relative;
-      display: inline-flex;
-      justify-content: space-between;
-      width: 50%;
+        position: relative;
+        display: inline-flex;
+        justify-content: space-between;
+        width: 50%;
+        li { 
+            a svg g > g {
+                transition: fill 300ms ease;
+            }
+            &:hover {
+                a svg g > g {
+                    fill: $green;
+                }
+            }
+            
+        }
+       
+    
       @include breakpoint(small down) {
         width: 90%;
         justify-content: space-around;

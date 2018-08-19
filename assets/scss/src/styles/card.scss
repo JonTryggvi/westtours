@@ -1,42 +1,44 @@
 
 ////
 
-
-.card, .card-large {
+.card,
+.card-large {
   box-sizing: border-box;
   font-family: $font;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0 0 -5px rgba(0, 0, 0, 0.0);
-  color: #272727;
   border: 1px solid $grey;
   border-radius: 5px;
 
-
   p {
-    @include font(p);
+    @include font(cat);
     text-transform: uppercase;
     text-align: center;
     letter-spacing: -0.28px;
     margin: 0 auto;
+
     a {
       @include font(p);
       color: $grey;
     }
   }
+
   .card-content {
     border-radius: 0 0 5px 5px;
+
     h2 {
       @include font(h2);
       text-align: center;
       letter-spacing: -0.48px;
       line-height: 28px;
       margin: 0 auto;
-      padding:0 1rem 0;
+      padding: 0 1rem;
     }
+
     p {
-      @include font(p);
-      // text-align: center;
+      @include font(cat);
+      color: $black;
       text-transform: none;
       word-break: break-all;
       letter-spacing: 0.28px;
@@ -46,15 +48,16 @@
       overflow: hidden;
       padding: 0;
     }
+
+    &::after {
+      content: '';
+      width: 280px;
+      flex: 1;
+    }
   }
 
   .action {
-    // width: 180px;
     margin: 20px auto 0;
-    // .bookBtn {
-    //   @include btn($green, $white, 180px, 44px);
-    // }
-
   }
 
   .image {
@@ -68,14 +71,13 @@
       padding: 1.3rem;
       color: #fff;
     }
+
     img {
       border-radius: 5px 5px 0 0;
     }
   }
+
 }
-
-
-
 
 .card {
   position: relative;
@@ -84,12 +86,20 @@
   height: 470px;
   transition: box-shadow 0.4s ease-in-out;
   margin: 0 auto 30px;
+
   &:hover {
     box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.2);
+
+    .bookBtn {
+      background-color: $green;
+      color: white;
+    }
   }
+
   &:active {
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
   }
+
   .icon {
     background-repeat: no-repeat;
     background-position: center center;
@@ -97,55 +107,66 @@
     max-width: 35px;
     width: 100%;
     height: 25px;
-    margin: 13px auto 10px;
+    margin: 13px auto 6px;
 
     .icon-sailing {
       width: 42px;
-        margin: 11px auto 0;
+      margin: 11px auto 0;
     }
+
     .icon-food {
       width: 21.88px;
       margin: 13px auto 0;
     }
+
     .icon-cycling {
       width: 30px;
-        margin: 20px auto 0;
+      margin: 20px auto 0;
     }
+
     .icon-animal-life {
       width: 29px;
       margin: 17px auto 0;
     }
-    .icon-hiking-large-card{
+
+    .icon-hiking-large-card {
       width: 30px;
       margin: 12px auto 0;
     }
   }
+
   p {
-
-  height: 14px;
-  margin-top: 6px;
-
+    height: 14px;
+    margin-top: 6px;
   }
+
   .card-content {
+    display: block;
     margin-top: 14px;
-      padding:0 20px 0;
-    h2{
+    padding: 0 20px;
+
+    h2 {
       width: 210px;
       height: 56px;
-      overflow: hidden;
+      overflow: visible;
+      padding: 0;
     }
+
+    .smallerH2 {
+      font-size: rem-calc(16);
+      line-height: normal;
+    }
+
     p {
       height: 38px;
-      overflow: hidden;
+      overflow: visible;
       text-align: center;
       margin: 12px auto 0;
+      word-break: keep-all;
+      color: $darkgrey;
     }
   }
-  // .action{
-  //   width: 180px;
-  //   height: auto;
-  //   position: relative;
-  // }
+
   .bookBtn {
     position: absolute;
     left: 50%;
@@ -153,22 +174,15 @@
     @include btn($green, $white, 180px, 43px, 0 0 0 -90px);
 
   }
-  .image{
+
+  .image {
     max-height: 200px;
     height: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
   }
-  // @include breakpoint(small down){
-  //   @include grid-column-collapse;
-  // }
-  // @include breakpoint(medium down){
-  //     @include grid-column-collapse;
-  // }
-  // @include breakpoint(large down){
-  //   @include grid-column-collapse;
-  // }
+
 }
 
 .card-large {
@@ -178,9 +192,16 @@
   height: 550px;
   margin: 0 0 30px;
   transition: box-shadow 0.4s ease-in-out;
+
   &:hover {
     box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.2);
+
+    .readMoreBtn {
+      background-color: $green;
+      color: white;
+    }
   }
+
   &:active {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   }
@@ -190,62 +211,73 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
-    max-width: 35px;
+    max-width: 45px;
     width: 100%;
-    height: 25px;
-    margin: 13px auto 10px;
+    height: 40px;
+    margin: 13px auto 0;
+
     .icon-sailing {
       width: 42px;
-        margin:  11px auto 0;
+      margin: 11px auto 0;
     }
+
     .icon-food {
       width: 21.88px;
       margin: 13px auto 0;
     }
+
     .icon-cycling {
       width: 30px;
-        margin: 20px auto 0;
+      margin: 20px auto 0;
     }
+
     .icon-animal-life {
       width: 29px;
       margin: 17px auto 0;
     }
-    .icon-hiking-large-card{
+
+    .icon-hiking-large-card {
       width: 30px;
       margin: 0 auto;
     }
   }
+
   p {
 
     line-height: 20px;
   }
+
   .card-content {
     margin-top: 12px;
-    padding:0 1rem 0;
-    h2{
+    padding: 0 1rem;
+
+    h2 {
       @include font(h2);
-      width: 210px;
-      height: 40px;
+      height: auto;
       overflow: hidden;
-      width: 90%;
+      width: 100%;
+      line-height: 42px;
     }
+
     p {
       text-align: left;
-      margin: 0 auto 0;
-      padding: 0 20px;
-      height: 100px;
-      word-wrap: normal;
+      margin: 18px auto 0;
+      padding: 0;
+      word-break: keep-all;
+      height: auto;
+      padding: 0 0 0 12px;
+      color: $darkgrey;
     }
   }
 
-    .readMoreBtn {
-      position: absolute;
-      left: 50%;
-      bottom: 29px;
-      @include btn($green, #fff, 180px, 43px, 0 0 0 -90px);
-    }
+  .readMoreBtn {
+    position: absolute;
+    left: 50%;
+    bottom: 29px;
+    @include btn($green, #fff, 180px, 43px, 0 0 0 -90px);
+  }
 
-  .image{
+  .image {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -254,22 +286,25 @@
   }
 }
 
-#cards {
+#cards,
+#cardsMobile {
   display: flex;
+  transition: max-height 300ms ease-in-out;
   flex-flow: row wrap;
   justify-content: space-between;
   overflow: visible;
   height: auto;
+  max-height: 30000px;
   max-width: 1180px;
   width: 100%;
   margin: 0 auto;
 
-  @include breakpoint(medium down){
+  @include breakpoint(medium down) {
     justify-content: space-around;
   }
 }
 
-#big-cards {
+.big-cards {
   display: flex;
   overflow: visible;
   flex-flow: row wrap;
@@ -282,14 +317,9 @@
   }
 }
 
-
-
 .hentry header {
   border-bottom: none;
 }
-
-
-
 
 .show-more {
   @include font(button);
@@ -304,15 +334,47 @@
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
   margin: rem-calc(30) auto;
+
   &:hover {
     box-shadow: 0 1px 40px 0 rgba(0, 0, 0, 0.2);
     color: $darkgrey;
   }
+
   &:active {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  }
+  @include breakpoint(small down) {
+    display: none;
   }
 }
 
 .card-container {
+  display: inline-block;
   max-width: 280px;
+  @include breakpoint(small down) {
+    margin-right: 20px;
+  }
+}
+
+#cardContainer {
+  //  display:none;
+}
+
+.hidden {
+  display: none;
+}
+
+.slick-slide {
+  width: 280px;
+}
+
+.slick-list {
+  @include breakpoint(small down) {
+    // width: 90%;
+  }
+}
+
+.flexFix {
+  width: 280px;
+  height: 0;
 }

@@ -1,90 +1,132 @@
-.chapter-parent{
+.chapter-parent {
+  display: flex;
+  flex-flow: row wrap;
   margin-top: 10vh;
-.chapter-red, .chapter-blue {
-  position: relative;
-  float: left;
-  width: 50vw;
-  height: 375px;
-  padding: 61px 0 0;
-  background-color: $red;
-  h2 {
-    @include font(h2);
-    color: #fff;
-  }
-  p {
-    @include font(p);
-    color: #fff;
-  }
 
-  .chapter-red-btn{
-    position: absolute;
-    box-sizing: border-box;
-    @include btn($red, #fff, 180px, 43px,  $margin:null);
-    background-color: #fff;
-    color: $red;
-    line-height: 43px;
-    bottom: 58px;
-    left: 50%;
-    margin-left: -90px;
-    transition: all .3s ease-in-out;
-    &:hover {
-      border: 1px solid #fff;
-      background-color: $red;
+  .chapter-blue,
+  .chapter-red {
+    position: relative;
+    float: left;
+    width: 50vw;
+    height: 375px;
+    padding: 61px 0 0;
+    background-color: $red;
+
+    h2 {
+      @include font(h2);
       color: #fff;
     }
-  }
-  .chapter-blue-btn {
-    position: absolute;
-    @include btn($blue, #fff, 180px, 43px,  $margin:null);
-    background-color: #fff;
-    color: $blue;
-    line-height: 43px;
-    bottom: 58px;
-    left: 50%;
-    margin-left: -90px;
-    transition: all .3s ease-in-out;
-    &:hover {
-      border: 1px solid #fff;
-      background-color: $blue;
+
+    p {
+      @include font(p);
+      letter-spacing: -0.32px;
+      line-height: 22px;
       color: #fff;
     }
-  }
-  @include breakpoint(medium down) {
-    width: 100vw;
-  }
-}
-.chapter-red-img{
-  float: right;
-  width: 50vw;
-  height: 375px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  @include breakpoint(medium down) {
-    width: 100vw;
 
-  }
-}
-.chapter-blue {
-  float: right;
-  width: 50vw;
-  height: 375px;
-  background-color: $blue;
-  @include breakpoint(medium down) {
-    width: 100vw;
+    .chapter-red-btn {
+      position: absolute;
+      box-sizing: border-box;
+      @include btn($red, #fff, 180px, 43px, $margin:null);
+      background-color: #fff;
+      color: $red;
+      line-height: 43px;
+      bottom: 58px;
+      left: 50%;
+      margin-left: -90px;
+      transition: all 0.3s ease-in-out;
 
-  }
-}
-.chapter-blue-img{
-  float: left;
-  width: 50vw;
-  height: 375px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  @include breakpoint(medium down) {
-    width: 100vw;
+      &:hover {
+        border: 1px solid #fff;
+        background-color: $red;
+        color: #fff;
+      }
+      @include breakpoint(medium down) {
+        bottom: 22px;
+      }
+    }
 
+    .chapter-blue-btn {
+      position: absolute;
+      @include btn($blue, #fff, 180px, 43px, $margin:null);
+      background-color: #fff;
+      color: $blue;
+      line-height: 43px;
+      bottom: 58px;
+      left: 50%;
+      margin-left: -90px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        border: 1px solid #fff;
+        background-color: $blue;
+        color: #fff;
+      }
+      @include breakpoint(medium down) {
+        bottom: 22px;
+      }
+    }
+    @include breakpoint(medium down) {
+      width: 100vw;
+      height: 291px;
+      padding: 31px 0 0;
+
+      h2 {
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+    @include breakpoint(small down) {
+      padding: 0;
+    }
   }
-}
+
+  .chapter-red {
+    order: 1;
+    @include breakpoint(medium down) {
+      order: 2;
+
+    }
+  }
+
+  .chapter-red-img {
+    float: right;
+    width: 50vw;
+    height: 375px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    order: 2;
+    @include breakpoint(medium down) {
+      width: 100vw;
+      height: 375px;
+      order: 1;
+    }
+  }
+
+  .chapter-blue {
+    order: 4;
+    // height: 375px;
+    background-color: $blue;
+    @include breakpoint(medium down) {
+      width: 100vw;
+
+    }
+  }
+
+  .chapter-blue-img {
+    order: 3;
+    width: 50vw;
+    height: 375px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include breakpoint(medium down) {
+      width: 100vw;
+      height: 375px;
+    }
+  }
 }

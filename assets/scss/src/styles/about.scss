@@ -1,0 +1,82 @@
+.about-banner {
+    top: 0;
+    left: 0;
+    height: 450px;
+    width: 100%;
+}
+
+.about-icon {
+    margin-top: 40px;
+    svg {
+        width: 40px;
+        fill: $green;
+    }
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: row;
+    border-top: 1px solid #e6e6e6;
+    border-right: none;
+    border-bottom: 1px solid #e6e6e6;
+    border-left: none;
+    margin-bottom: 56px;
+    @include grid-column(10);
+    @include grid-col-pos(1);
+    @include breakpoint(small down) {
+        flex-flow: column;
+    }
+}
+
+.tabs .is-active a {
+    background-color: #56b881;
+    color: #fff;
+}
+.tabs li a {
+    height: 52px;
+    font-size: 1rem;
+    color: #56b881;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    &:hover {
+        background-color: #56b881;
+        color: #fff;
+    }
+    @include breakpoint(medium down) {
+        font-size: 12px;
+    }
+    @include breakpoint(small down) {
+        font-size: 16px;
+    }
+}
+.tabs {
+   
+    li {    
+        box-sizing: border-box;
+        height: 52px;
+        @include breakpoint(small down) {
+            width: 100%;
+
+        }
+    }
+}
+.tabs-content {
+    border: 1px solid #e6e6e6;
+    border-top: 0;
+    background: #fefefe;
+    color: #0a0a0a;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.h2-wrapper {
+    width: 83.33333%;
+    float: left;
+    padding-right: .15625rem;
+    padding-left: .15625rem;
+    position: relative;
+    left: 8.33333%;
+    margin: 0 auto 56px;
+}

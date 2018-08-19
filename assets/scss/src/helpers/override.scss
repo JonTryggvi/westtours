@@ -1,27 +1,89 @@
+*:active,
+*:focus {
+  outline: none;
+}
+
 body {
   background-color: $bodygrey;
+  position: relative;
 }
 
 label {
   @include font(label);
 }
 
+input {
+  border: none;
+  box-shadow: none !important;
+}
+
+button:focus,
 input:focus,
 select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
+textarea:focus {
+  outline: none;
 }
 
 h1 {
   @include font(h1);
 }
+
 h2 {
   @include font(h2);
 }
+
 p {
   @include font(p);
 }
+
 a {
   @include font(a);
+}
+
+button {
+  cursor: pointer;
+}
+
+.hiddenCard {
+  visibility: hidden;
+  order: -1;
+  height: 0;
+}
+
+.off-canvas .menu .active > a {
+  background-color: transparent;
+}
+// @include breakpoint(large) {
+//   .owl-item.cloned{
+//     display: none !important;
+//   }
+//   .owl-stage{
+//     transform:none !important;
+//     transition: none !important;
+//     width: auto !important;
+//   }
+//   .owl-item{
+//     width: auto !important;
+//   }
+// }
+// .row {
+//   @include breakpoint(large down) {
+//     width: 90%;
+//   }
+// }
+.dateShow {
+  display: flex;
+}
+
+input:disabled,
+input[readonly],
+textarea:disabled,
+textarea[readonly] {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+
+  &:focus {
+    border: none;
+  }
 }

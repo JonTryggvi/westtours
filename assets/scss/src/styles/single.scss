@@ -1,39 +1,528 @@
+#single-post {
+  max-width: 1180px;
+  width: 100%;
+  margin: 120px auto 0;
+  @include breakpoint(xlarge down) {
+    width: 90%;
+  }
+  @include breakpoint(small down) {
+    margin: 0 auto;
+  }
+}
+
 .main-content {
-  margin-top: 120px;
+  max-width: 1180px !important;
+  margin: 50px auto 0;
   width: 100% !important;
+  padding: 0 !important;
+  @include breakpoint(medium down) {
+    margin: 70px auto 0;
+
+  }
+
   header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    // height: 50px;
+    margin-top: 50px;
+
     h1 {
-      display: inline-block;
+      display: inline-flex;
       width: 50%;
+      align-items: flex-start;
+      margin: 0;
+      position: relative;
+      height: auto;
+      @include breakpoint(medium down) {
+        display: flex;
+        justify-content: flex-start;
+        width: 90%;
+        // margin: 20px auto 10px;
+      }
+      @include breakpoint(small down) {
+        font-size: 18px;
+      }
+
     }
+
+    .totalPrice {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      align-self: flex-start;
+      width: 20%;
+      height: 100%;
+      @include breakpoint(small down) {
+        font-size: 18px;
+        width: 30%;
+        height: 50px;
+      }
+
+      span {
+        color: $green;
+        font-size: 28px;
+        font-weight: 600;
+        height: 32px;
+        @include breakpoint(medium down) {
+          font-size: 18px;
+        }
+        @include breakpoint(small down) {
+          font-size: 15px;
+          height: 18px;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        margin: 0 0 15px;
+        @include breakpoint(medium down) {
+          font-size: 12px;
+        }
+        @include breakpoint(small down) {
+          font-size: 8px;
+        }
+      }
+    }
+
     ul {
       display: flex;
       list-style: none;
       flex-flow: column wrap;
-      li {
 
-      }
+      li {}
     }
   }
+
   .entry-content {
     border-radius: 5px;
-    border: 1px solid $grey;
+    // border: 1px solid $grey;
     overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    @include breakpoint(medium down) {
+      border-radius: 5px;
+      border: none;
+    }
+
     .post-image {
       position: relative;
-      height: 500px;
+      height: 550px;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-      overflow: hidden;
+      // overflow: hidden;
+      border-radius: 5px 5px 0 0;
+      z-index: 1;
+      cursor: pointer;
+      @include breakpoint(medium down) {
+        border-radius: 5px 5px 0 0;
+        height: 350px;
+      }
+
       img {
         position: absolute;
-        top: -25%;
+        top: 0;
+        width: 100%;
+      }
+
+      .single-booked {
+        position: absolute;
+        height: 70px;
+        width: 100%;
+        background-color: #fff;
+        bottom: 40px;
+        z-index: 3;
+
+        .filter-container {
+          border: none;
+        }
+      }
+
+      .tooltiper {
+        position: absolute;
+        width: 100%;
+        height: 440px;
+        z-index: 2;
+        @include breakpoint(medium down) {
+
+          height: 250px;
+        }
+      }
+
+    }
+
+    .info-posts {
+      overflow: hidden;
+    }
+
+    .flex-section-row {
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row wrap;
+      position: relative;
+      @include breakpoint(large down) {
+        flex-flow: column;
+      }
+    }
+
+    .post-paragraph,
+    .post-paragraph-pay {
+      position: relative;
+      columns: 2;
+      column-gap: 18px;
+      @include grid-column(10);
+      @include grid-column-position(1);
+      margin-bottom: 25px;
+      @include breakpoint(medium down) {
+        columns: 1;
+      }
+
+      .special-anounsment {
+        margin-bottom: 30px;
+
+        p {
+          font-weight: 600;
+        }
+      }
+
+      .booking,
+      .noBooking {
+        list-style: none;
+        margin-left: 0;
+
+        li {
+          @include font(p);
+
+          p {
+            display: inline-block;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .booking {
+        min-height: 400px;
+
+        li {
+          @include font(p);
+          min-height: 70px;
+
+          p {
+
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .post-paragraph-pay {
+      // width: 60%;
+      columns: 1;
+      // column-gap: 18px;
+      @include grid-column(6);
+      @include grid-column-position(1);
+      @include breakpoint(large down) {
+        @include grid-column(10);
+        margin-bottom: 20px;
+      }
+    }
+
+    .booking-engine {
+      @include grid-column(4);
+      // @include grid-column-position(1);
+      // border: 1px solid red;
+      min-width: 317px;
+      display: flex;
+      justify-content: center;
+      height: auto;
+      @include breakpoint(large down) {
+        position: absolute;
+        right: 10%;
+        bottom: 0;
+        // @include grid-column(4);
+        // @include grid-column-position(1);
+        margin-bottom: 85px;
+      }
+      @include breakpoint(small down) {
+        position: relative;
+        align-self: center;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    .activety-icon {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      height: 113px;
+
+      .single-cat {
+        @include font(p);
+        text-transform: uppercase;
+        color: $grey;
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+.theSum {
+  display: flex;
+  justify-content: center;
+}
+
+.booking-engine-sum {
+  @include grid-column(10);
+  display: flex;
+  flex-direction: column;
+
+  &__details,
+  &__total {
+    display: flex;
+    border-top: 1px solid $lightgrey;
+
+    height: 114px;
+    align-items: center;
+
+    label {
+      font-size: 14px;
+      color: $green;
+      flex: 1;
+      @include breakpoint(small down) {
+        width: 100%;
+      }
+
+      input {
+        width: 90%;
+        font-size: 18px;
+        color: $black;
+        @include breakpoint(small down) {
+          width: 100%;
+        }
+      }
+    }
+
+    label:nth-child(3) {
+      input {
         width: 100%;
       }
     }
   }
+
+  &__details {
+    @include breakpoint(small down) {
+      flex-direction: column;
+      height: auto;
+      align-items: flex-start;
+      padding: 20px 0;
+    }
+  }
+
+  &__total {
+    border-bottom: 1px solid $lightgrey;
+    justify-content: flex-end;
+    position: relative;
+    @include breakpoint(medium down) {
+      height: 150px;
+    }
+    @include breakpoint(small down) {
+      justify-content: flex-start;
+    }
+
+    .flexFix {
+      width: 100%;
+      height: 1px;
+      flex: 1;
+      @include breakpoint(small down) {
+        display: none;
+      }
+    }
+
+    .totalPlaceholder {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      width: (100 / 3) +%;
+      height: 100%;
+      @include breakpoint(medium down) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+
+      }
+
+      label {
+        display: flex;
+        flex-direction: column;
+        width: 135px;
+        max-height: 50px;
+      }
+
+      .btnPay {
+        @include button;
+      }
+    }
+  }
+
+  &__customer {
+    height: 300px;
+    overflow: visible;
+    transition: all 500ms ease;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    label {
+      display: flex;
+      flex-flow: column;
+      width: 48%;
+      position: relative;
+
+      .countries-list {
+        top: 75px;
+        width: 100%;
+        max-height: 130px;
+        overflow: hidden;
+        overflow-y: scroll;
+        position: absolute;
+        background-color: #fff;
+        z-index: 1;
+        box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        padding: 12px 8px 8px;
+        visibility: hidden;
+
+        &::before {
+          @include css-triangle(15px, white, 'up');
+          position: absolute;
+          top: -10px;
+          left: 10px;
+          width: 15px;
+          height: 15px;
+          z-index: 2;
+        }
+
+        .nation-list-item {
+          display: flex;
+          align-items: center;
+
+          .nation-flag {
+            display: block;
+            width: 20px;
+            height: 15px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .countryVisible {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.map-container {
+  float: left;
+  height: 100px;
+  width: 100%;
+
+  h2 {
+    text-align: center;
+
+  }
+}
+
+h2 {
+  margin: 32px 0 0;
+  @include breakpoint(medium down) {
+    margin-bottom: 6px;
+  }
+}
+
+.chapter-single-page {
+
+  margin-top: 20px;
+
+}
+
+.smallCards-single.smallCards-single {
+  float: left;
+  max-width: 1180;
+  width: 100%;
+  margin: 50px auto 0;
+
+}
+
+.heightnull {
+  height: 0;
+  overflow: hidden;
+}
+
+.country-list {
+  width: 98%;
+}
+
+.failedTranAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: $bodygrey;
+  z-index: 999;
+  transform: scale(0);
+  top: 0;
+  left: 0;
+  transition: all 300ms ease-in-out;
+
+  .close_scaleup {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: $darkgrey;
+
+    }
+
+    span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .trans-fail-msg-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    button {
+      @include button;
+    }
+  }
+
 }

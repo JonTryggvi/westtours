@@ -1,0 +1,135 @@
+.search-dropdown {
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  // max-width: 1180px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  z-index: 0;
+  transition: all 300ms ease;
+  @include breakpoint(small down) {
+    display: none;
+  }
+
+}
+
+.show-search {
+  bottom: -70px;
+  opacity: 1;
+}
+
+#searchform,
+#searchformMobile {
+  max-width: 1180px;
+  display: flex;
+  align-items: center;
+  @include breakpoint(large down) {
+    width: 90%;
+  }
+
+  .input-group {
+    border: 0;
+    margin-bottom: 0;
+
+    input {
+      font-size: 36px;
+      border: none;
+      // border-bottom: 2px solid $green;
+      height: 64px;
+      transition: all 300ms ease;
+      @include breakpoint(medium down) {
+        font-size: 18px;
+        height: 46px;
+        padding-left: 15px;
+      }
+
+      &:active,
+      &:focus {
+        border-bottom: 2px solid $green;
+        @include underline-from-center-mod;
+        @include breakpoint(medium down) {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .button {
+      @include button;
+      @include breakpoint(small down) {
+        // display: none;
+
+      }
+    }
+  }
+}
+
+.white {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.search-results-page {
+  margin-top: 200px;
+  @include breakpoint(medium down) {
+    margin-top: 100px;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+
+    a {
+      @include font(h2);
+      color: $green;
+      line-height: 44px;
+      @include underline-from-center-mod;
+    }
+
+  }
+}
+
+.s-results {
+  padding: 15px 20px 20px 25px;
+  border-radius: 5px;
+  background-color: #fff;
+  @include breakpoint(medium down) {
+    padding: 15px;
+  }
+}
+
+#searchformMobile {
+  .input-group {
+    display: flex;
+
+    .input-group-button {
+      display: flex;
+      position: absolute;
+      width: 30px;
+      left: 0;
+
+      &::before {
+        @include position(30px, 30px, 50%, -50%, null, 0);
+        margin-top: -15px;
+        background: url("../images/icons/spyglass.svg") no-repeat center center;
+        background-size: contain;
+        z-index: 0;
+      }
+
+      .btnMobileSearch {
+        @include breakpoint(small down) {
+          width: 30px;
+          border-radius: 0;
+          background-color: transparent;
+          position: relative;
+          border: none;
+          z-index: 1;
+        }
+
+      }
+    }
+  }
+
+}

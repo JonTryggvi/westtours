@@ -190,3 +190,12 @@ class Foundationpress_Comments extends Walker_Comment {
     <?php }
 }
 endif;
+
+
+add_action('admin_menu', 'remove_default_post_type');
+
+function remove_default_post_type()
+{
+    remove_menu_page('edit.php');
+}
+

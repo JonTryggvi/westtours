@@ -165,7 +165,7 @@ get_header(); ?>
           <a href="<?php the_permalink(); ?>">
             <?php if ($cardImg): ?>
             <div class="image" style="background-image:url(<?php echo $cardImg; ?>);"></div>
-            <?php else:  var_dump($bokunImg)?>
+            <?php else: ?>
             <div class="image" style="background-image:url(<?php echo $bokunImg; ?>);"></div>
             <?php endif; ?>
             <div class="icon" style="background-image:url(<?php echo get_template_directory_uri().'/assets/images/icons/catIcons/'.$mainActivetyIcon.'.svg'; ?>);"></div>

@@ -36,7 +36,7 @@ function custom_tours() {
 		'description'           => __( 'All tours', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		// 'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
@@ -70,14 +70,14 @@ function taxonomies_tours() {
         'update_item'       => __( 'Update tour category' ),
         'add_new_item'      => __( 'Add Edit tour category' ),
         'new_item_name'     => __( 'New tour category' ),
-        'menu_name'         => __( 'tour Categories' ),
+        'menu_name'         => __( 'Tour Categories' ),
     );
     $args = array(
         'labels' => $labels,
         'hierarchical' => true,
         'rewrite' => true
     );
-    register_taxonomy( 'tour_category', array('tour'), $args );
+    register_taxonomy( 'tours', array('tour'), $args );
 }
 add_action( 'init', 'taxonomies_tours', 0 );
 

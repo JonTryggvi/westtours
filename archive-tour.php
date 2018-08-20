@@ -17,7 +17,7 @@
 
   get_header(); ?>
 
-<div class="archive-page" role="main">
+<div class="archive-page margin-top" role="main">
 <!-- <div id="page" class="page" role="main"> -->
   <section class="front-smallCards-container trips-page">
     <h1>All Trips</h1>

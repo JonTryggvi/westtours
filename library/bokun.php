@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 require_once '../../../../wp-load.php';
 require_once ABSPATH . 'wp-admin/includes/media.php';
@@ -251,7 +251,7 @@ function popular()
 if ($_GET['popular'] == 'true') {
     // print_r(popular());
     $aPopular = popular();
-    
+
     foreach ($wpTours as $updatePoularkey => $wpTour) {
         update_field('is_popular', 0, $wpTour->id);
         foreach ($aPopular as $pop) {
@@ -260,7 +260,7 @@ if ($_GET['popular'] == 'true') {
             }
         }
     }
-    // echo json_encode( $aPopular ); 
+    // echo json_encode( $aPopular );
 
 }
 
@@ -315,7 +315,7 @@ if (isset($_GET['updatetours']) && $_GET['updatetours'] == 'update') {
 
     $arrRes = array_diff($jsonBokunIds, $a_bokun_id);
     $arrRev = array_diff($a_bokun_id, $jsonBokunIds);
-    // var_dump($arrRes);
+
 
     foreach ($wpTours as $key => $tourToDelde) {
 
@@ -369,18 +369,9 @@ if (isset($_GET['updatetours']) && $_GET['updatetours'] == 'update') {
         $jsonLastPublished = strtotime($tours[$key]->lastPublished);
         $thisWpPostDate = strtotime($thisWpPost->post_date);
         // var_dump($thisWpPostId);
-        if ($thisWpPostId && $jsonLastPublished > $thisWpPostDate) {
-            // var_dump($thisWpPostId);
-            // var_dump($val);
-            // *****
-            // // Insert the post into the database
-            // $tripPostArr = array(
-            //   'post_title' => $tours[$key]->title,
-            //   'post_content' => $tours[$key]->description,
-            //   'post_status' => 'publish',
-            //   'post_type' => 'tour_post_type'
-            // );
-
+        if ($thisWpPostId && $jsonLastPublished < $thisWpPostDate) {
+       
+               
             $post_id = $thisWpPostId;
 
             $tripPostArr = array(
@@ -451,20 +442,23 @@ if (isset($_GET['updatetours']) && $_GET['updatetours'] == 'update') {
             $requirements = $tours[$key]->requirements;
             $tripPhotos = $tours[$key]->photos;
             $tripAttributes = $tours[$key]->activityAttributes;
-
-            foreach ($tripAttributes as $keyAttr => $tripAttribute) {
+            
+            $postTerms = [];
+            foreach ($tripAttributes as $tripAttribute) {
 
                 $slug = strtolower($tripAttribute);
                 // print_r($slug);
 
-                $term = get_term_by('slug', $slug, 'tour');
-                $termExists = term_exists($term, 'tour');
+                $term = get_term_by('slug', $slug, 'tours');
+              
+                $termExists = term_exists($term, 'tours');
                 if (!$termExists) {
                     $postTerms[] = $term->term_id;
                 }
 
             }
-            wp_set_post_terms($post_id, $postTerms, 'tour', true);
+           
+            wp_set_post_terms($post_id, $postTerms, 'tours', true);
             $postTerms = [];
 
             $attach_id_arr = get_field('field_5a4bac3744063', $post_id, false);
@@ -473,77 +467,84 @@ if (isset($_GET['updatetours']) && $_GET['updatetours'] == 'update') {
             }
 
             // *****
-            foreach ($tripPhotos as $akey => $tripPhoto) {
-                // var_dump($tripPhoto->originalUrl);
-                // media_sideload_image($tripPhoto->originalUrl, $post_id, $tripPhoto->description );
-                // update_field('tour_gallery', $tripPhoto->originalUrl, $post_id);
-                $url = $tripPhoto->originalUrl;
-                $timeout_seconds = 50;
+            // foreach ($tripPhotos as $akey => $tripPhoto) {
+            //     // var_dump($tripPhoto->originalUrl);
+            //     // media_sideload_image($tripPhoto->originalUrl, $post_id, $tripPhoto->description );
+            //     // update_field('tour_gallery', $tripPhoto->originalUrl, $post_id);
+            //     $url = $tripPhoto->originalUrl;
+            //     $timeout_seconds = 50;
 
-                // Download file to temp dir
-                $temp_file = download_url($url, $timeout_seconds);
+            //     // Download file to temp dir
+            //     $temp_file = download_url($url, $timeout_seconds);
 
-                if (!is_wp_error($temp_file)) {
-                    // Array based on $_FILE as seen in PHP file uploads
-                    $file = array(
-                        'name' => basename($url), // ex: wp-header-logo.png
-                        'type' => 'image/jpg',
-                        'tmp_name' => $temp_file,
-                        'error' => 0,
-                        'size' => filesize($temp_file),
-                    );
+            //     if (!is_wp_error($temp_file)) {
+            //         // Array based on $_FILE as seen in PHP file uploads
+            //         $file = array(
+            //             'name' => basename($url), // ex: wp-header-logo.png
+            //             'type' => 'image/jpg',
+            //             'tmp_name' => $temp_file,
+            //             'error' => 0,
+            //             'size' => filesize($temp_file),
+            //         );
 
-                    $overrides = array(
-                        // Tells WordPress to not look for the POST form
-                        // fields that would normally be present as
-                        // we downloaded the file from a remote server, so there
-                        // will be no form fields
-                        // Default is true
-                        'test_form' => false,
+            //         $overrides = array(
+            //             // Tells WordPress to not look for the POST form
+            //             // fields that would normally be present as
+            //             // we downloaded the file from a remote server, so there
+            //             // will be no form fields
+            //             // Default is true
+            //             'test_form' => false,
 
-                        // Setting this to false lets WordPress allow empty files, not recommended
-                        // Default is true
-                        'test_size' => true,
-                    );
+            //             // Setting this to false lets WordPress allow empty files, not recommended
+            //             // Default is true
+            //             'test_size' => true,
+            //         );
 
-                    // Move the temporary file into the uploads directory
-                    $results = wp_handle_sideload($file, $overrides);
+            //         // Move the temporary file into the uploads directory
+            //         $results = wp_handle_sideload($file, $overrides);
 
-                    if (!empty($results['error'])) {
-                        // Insert any error handling here
-                    } else {
-                        $filename = $results['file']; // Full path to the file
-                        $local_url = $results['url']; // URL to the file in the uploads dir
-                        $type = $results['type']; // MIME type of the file
-                        // media_sideload_image($local_url, $post_id);
-                        // Perform any actions here based in the above results
-                        // var_dump($filenam);
+            //         if (!empty($results['error'])) {
+            //             // Insert any error handling here
+            //         } else {
+            //             $filename = $results['file']; // Full path to the file
+            //             $local_url = $results['url']; // URL to the file in the uploads dir
+            //             $type = $results['type']; // MIME type of the file
+            //             // media_sideload_image($local_url, $post_id);
+            //             // Perform any actions here based in the above results
+            //             // var_dump($filenam);
 
-                        $attachment = array(
-                            'guid' => $local_url,
-                            'post_mime_type' => $type,
-                            'post_title' => preg_replace('/\.[^.]+$/', '', basename($filename)),
-                            'post_content' => '',
-                            'comment_status' => 'closed',
-                            'post_status' => 'inherit', #may need to change to inherit !!
-                        );
-                        // Insert the attachment.
+            //             $attachment = array(
+            //                 'guid' => $local_url,
+            //                 'post_mime_type' => $type,
+            //                 'post_title' => preg_replace('/\.[^.]+$/', '', basename($filename)),
+            //                 'post_content' => '',
+            //                 'comment_status' => 'closed',
+            //                 'post_status' => 'inherit', #may need to change to inherit !!
+            //             );
+            //             // Insert the attachment.
 
-                        $attach_id = wp_insert_attachment($attachment, $filename, $post_id);
-                        // $attach_data = wp_generate_attachment_metadata( $attach_id, $local_url );
-                        // wp_update_attachment_metadata( $attach_id, $attach_data );
+            //             $attach_id = wp_insert_attachment($attachment, $filename, $post_id);
+            //             // $attach_data = wp_generate_attachment_metadata( $attach_id, $local_url );
+            //             // wp_update_attachment_metadata( $attach_id, $attach_data );
 
-                        $attach_id_arr[] = $attach_id;
-                    }
-                }
-            }
+            //             $attach_id_arr[] = $attach_id;
+            //         }
+            //     }
+            // }
+            
             $mymenuObj = wp_get_nav_menu_object('main');
             $menuID = (int) $mymenuObj->term_id;
             $myPage = get_page_by_title('trips');
             $mymenu = wp_get_nav_menu_items('main');
+            // wp_delete_nav_menu($menuID);
+
             $itemDataDel = array(
                 'menu-item-object-id' => $post_id,
+                'menu-item-position' => 1,
+                'menu-item-object' => 'post',
+                'menu-item-type' => 'post_type',
                 'menu-item-status' => 'unpublish',
+                'menu-item-parent-id' => $parentMenuItem,
             );
 
             // var_dump($mymenuObj);
@@ -568,7 +569,7 @@ if (isset($_GET['updatetours']) && $_GET['updatetours'] == 'update') {
             $itemData = array(
                 'menu-item-object-id' => $post_id,
                 'menu-item-position' => 1,
-                'menu-item-object' => 'post',
+                'menu-item-object' => 'tour',
                 'menu-item-type' => 'post_type',
                 'menu-item-status' => 'publish',
                 'menu-item-parent-id' => $parentMenuItem,
@@ -630,47 +631,49 @@ if (isset($_GET['updatetours']) && $_GET['updatetours'] == 'update') {
             // var_dump($priceAdult);
 
             // *****
-            wp_update_nav_menu_item($menuID, 0, $itemData);
+            // wp_update_nav_menu_item($menuID, 0, $itemData);
 
-            update_field('requirements', $requirements, $post_id);
-            update_field('specia_anouncement', $anouncement, $post_id);
-            update_field('field_5a4bac3744063', $attach_id_arr, $post_id);
-            update_field('bokun_int_id', $tours[$key]->id, $post_id);
-            update_field('bokun_id', $tours[$key]->externalId, $post_id);
-            update_field('bokun_img', $tours[$key]->keyPhoto->originalUrl, $post_id);
-            update_field('field_59a5cb45ae183', $attach_id_arr[0], $post_id);
-            update_field('departure', $sDepartue, $post_id);
-            update_field('duration', $duration, $post_id);
-            update_field('included', $included, $post_id);
-            update_field('max_customers', $TourCapasity, $post_id);
-            update_field('min_customers', $minParticipants, $post_id);
-            update_field('season', $season, $post_id);
-            update_field('seaseason-start', $thisTripFirstDate, $post_id);
-            update_field('season-end', $thisTripLastDate, $post_id);
-            update_field('activety', $tours[$key]->activityCategories, $post_id);
-            update_field('activety_attributes', $tours[$key]->activityAttributes, $post_id);
-            update_field('cost_per_adult', $priceAdult, $post_id);
-            update_field('cost_per_children', $priceChild, $post_id);
-            update_field('cost_per_infant', $priceInfant, $post_id);
+            // update_field('requirements', $requirements, $post_id);
+            // update_field('specia_anouncement', $anouncement, $post_id);
+            // update_field('field_5a4bac3744063', $attach_id_arr, $post_id);
+            // update_field('bokun_int_id', $tours[$key]->id, $post_id);
+            // update_field('bokun_id', $tours[$key]->externalId, $post_id);
+            // update_field('bokun_img', $tours[$key]->keyPhoto->originalUrl, $post_id);
+            // update_field('field_59a5cb45ae183', $attach_id_arr[0], $post_id);
+            // update_field('departure', $sDepartue, $post_id);
+            // update_field('duration', $duration, $post_id);
+            // update_field('included', $included, $post_id);
+            // update_field('max_customers', $TourCapasity, $post_id);
+            // update_field('min_customers', $minParticipants, $post_id);
+            // update_field('season', $season, $post_id);
+            // update_field('seaseason-start', $thisTripFirstDate, $post_id);
+            // update_field('season-end', $thisTripLastDate, $post_id);
+            // update_field('activety', $tours[$key]->activityCategories, $post_id);
+            // update_field('activety_attributes', $tours[$key]->activityAttributes, $post_id);
+            // update_field('cost_per_adult', $priceAdult, $post_id);
+            // update_field('cost_per_children', $priceChild, $post_id);
+            // update_field('cost_per_infant', $priceInfant, $post_id);
 
-            update_field('adult_min_age', $minAgeAdult, $post_id);
-            update_field('child_min_age', $minAgeChild, $post_id);
-            update_field('infant_min_age', $minAgeInfant, $post_id);
-            update_field('location', $address, $post_id);
+            // update_field('adult_min_age', $minAgeAdult, $post_id);
+            // update_field('child_min_age', $minAgeChild, $post_id);
+            // update_field('infant_min_age', $minAgeInfant, $post_id);
+            // update_field('location', $address, $post_id);
 
-            foreach ($aPopular as $popkey => $pop) {
-                if ($tours[$key]->id == $pop) {
-                    update_field('is_popular', 1, $wpTour->id);
-                    // var_dump($wpTour->id);
-                    // var_dump($wpTour->title);
-                }
-            }
+            // foreach ($aPopular as $popkey => $pop) {
+            //     if ($tours[$key]->id == $pop) {
+            //         update_field('is_popular', 1, $post_id);
+            //         // var_dump($wpTour->id);
+            //         // var_dump($wpTour->title);
+            //     }
+            // }
 
-        } else {
+        } 
+        else {
+            // var_dump('test');
 
             foreach ($arrRes as $Reskey => $Resvalue) {
                 // *****
-                var_dump($key);
+                // var_dump($key);
 
                 if (!empty($arrRes) && $key == $Reskey) {
 
@@ -745,20 +748,20 @@ if (isset($_GET['updatetours']) && $_GET['updatetours'] == 'update') {
                     $requirements = $tours[$key]->requirements;
                     $tripPhotos = $tours[$key]->photos;
                     $tripAttributes = $tours[$key]->activityAttributes;
-
+                    // var_dump('tripAttributes');
                     foreach ($tripAttributes as $keyAttr => $tripAttribute) {
 
                         $slug = strtolower($tripAttribute);
                         // print_r($slug);
 
-                        $term = get_term_by('slug', $slug, 'tour');
-                        $termExists = term_exists($term, 'tour');
+                        $term = get_term_by('slug', $slug, 'tours');
+                        $termExists = term_exists($term, 'tours');
                         if (!$termExists) {
                             $postTerms[] = $term->term_id;
                         }
 
                     }
-                    wp_set_post_terms($post_id, $postTerms, 'tour', true);
+                    wp_set_post_terms($post_id, $postTerms, 'tours', true);
                     $postTerms = [];
 
                     $attach_id_arr = get_field('field_5a4bac3744063', $post_id, false);
@@ -954,7 +957,7 @@ if (isset($_GET['updatetours']) && $_GET['updatetours'] == 'update') {
 
                     foreach ($aPopular as $popkey => $pop) {
                         if ($tours[$key]->id == $pop) {
-                            update_field('is_popular', 1, $wpTour->id);
+                            update_field('is_popular', 1, $post_id);
                             // var_dump($wpTour->id);
                             // var_dump($wpTour->title);
                         }
@@ -1037,3 +1040,5 @@ if (isset($_GET['pay']) && $_GET['pay'] == 'pay') {
     print_r($phpAPIdata);
 
 }
+
+?>

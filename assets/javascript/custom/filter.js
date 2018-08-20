@@ -589,18 +589,22 @@ document.addEventListener('click', function(e) {
 
 
 
-$('#showFilteredTrip').click(function() {
-  sendTripForm('.fpFilter');
+$('#showFilteredTrip').click(function () {
+    console.log('x');
+    if (activitiesSearch.value == '') {
+        activitiesSearch.placeholder = 'Please enter a search term'
+    } else if (from.value == '') {
+        from.placeholder = 'Please choose date'
+    } else if (counter.value == "") {
+        counter.placeholder = 'Please select trip members'
+    } else if (activitiesSearch.value.length > 0 && from.value.length > 0 && counter.value.length > 0) {
+          sendTripForm('.fpFilter');
+        
+    }
+    
 
 
 
-  // if ($('.resultItem').length > 0)
-  // {
-  //   sendTripForm('.fpFilter');
-  // }
-  // else {
-  //   $(this).text('No match');
-  // }
 
 });
 

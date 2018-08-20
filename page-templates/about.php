@@ -41,7 +41,7 @@ foreach ($hero_image as $value) {
 
 		<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
         <div class="entry-content">
-            <div class="hero-bannerinn about-banner" data-interchange="[<?php echo $img[$randNumber]['sizes']['fp-small'] ?>, small], [<?php echo $img[$randNumber]['sizes']['fp-medium'] ?>, medium], [<?php echo $img[$randNumber]['sizes']['fp-large'] ?>, large], [<?php echo $img[$randNumber]['sizes']['fp-large'] ?>, xlarge], [<?php echo $img[$randNumber]['sizes']['fp-retina'] ?>, xxlarge]">
+            <div class="hero-bannerinn about-banner" data-interchange="[<?php echo $img[$randNumber]['sizes']['fp-small'] ?>, small], [<?php echo $img[$randNumber]['sizes']['fp-medium'] ?>, medium], [<?php echo $img[$randNumber]['sizes']['fp-large'] ?>, large], [<?php echo $img[$randNumber]['sizes']['fp-large'] ?>, xlarge]">
             <?php # get_template_part('template-parts/main-filter'); ?>
             </div>
             <div class="activety-icon about-icon">
